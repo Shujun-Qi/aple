@@ -193,6 +193,22 @@ impl Rules {
                     }
                 }
             }
+
+            let rules = lib.search_rule(sub_r.relation.clone());
+            let mut sub_rule_results: Vec<Rc<Predicate>> = vec![];
+            for rule in rules {
+                for (t_pos, key) in tuples.iter().enumerate(){
+                    let mut sub_args = vec![];
+                    for (p, k) in sub_v.iter().enumerate(){
+                        sub_args.push(key[index.iter().position(|x| x == k).unwrap()].clone());
+                    }
+                    println!("sub_args: {:?}", sub_args);
+                    sub_rule_results.append(rule.match_rules(&sub_args, lib).as_mut());
+                    println!("sub_rule_results: {:?}", sub_rule_results);
+                }
+            }
+
+
             for (p_ind, valid) in valid_pred.iter().enumerate(){
                 if !valid.is_empty() {
                     let pred_v = predicates[p_ind].get_variable();
@@ -206,9 +222,11 @@ impl Rules {
                             }
                             tuples.push(new_tuple);
                         }
+
                     }        
                 }
             }
+            
             if need_update{
                 for (p, k) in sub_v.iter().enumerate(){
                     if !index.contains(k){
@@ -218,6 +236,9 @@ impl Rules {
                 tuples.retain(|x| x.len() == index.len()); 
                 
             }
+
+            
+
             println!("index: {:?}", index);
             println!("tuples: {:?}", tuples);
             // println!("{:?}", result);

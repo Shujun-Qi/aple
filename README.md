@@ -1,7 +1,7 @@
 # Advanced Policy Logic Engine - APLE
-APLE is a part of the project One-Policy-That-Rule-Them-All. APLE presents a new logic engine in a top-down matching manner (similar to Prolog). The implementation of the logic engine follows the language concept of (Warren Abstract Machine Book)[https://github.com/mthom/scryer-prolog/blob/master/wambook/wambook.pdf].
+APLE is a part of the project One-Policy-That-Rule-Them-All. APLE presents a new logic engine in a top-down matching manner (similar to Prolog). The implementation of the logic engine follows the language concept of [Warren Abstract Machine Book](https://github.com/mthom/scryer-prolog/blob/master/wambook/wambook.pdf).
 
-This project follows and leverages the concepts and designs from existing rust logic language implementation such as (Data-frog)[], (scryer-prolog)[] and (logru)[].
+This project follows and leverages the concepts and designs from existing rust logic language implementation such as [Datafrog](https://github.com/rust-lang/datafrog), [scryer-prolog](https://github.com/mthom/scryer-prolog) and [logru](https://github.com/fatho/logru/tree/80fd3f34782a13029e8cf566907f8d34dfab8e58/src).
 
 # Available APIs
 ## Predicate:

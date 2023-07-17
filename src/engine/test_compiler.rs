@@ -1,3 +1,4 @@
+use super::*;
 use std::collections::HashMap;
 use std::io::prelude::*;
 // use std::process::exit;
@@ -7,8 +8,7 @@ use std::hash::{Hash, Hasher};
 use std::collections::hash_map::DefaultHasher;
 use regex::Regex;
 
-use crate::types::{FactLibrary, Predicate, Rules, Types};
-use crate::goals::Goal;
+use crate::{ast::*, universe::Universe};
 
 
 #[derive(Debug, Default)]
@@ -16,8 +16,8 @@ struct Rules{
     speaker: String,
     // condition: Vec<(String, String)>,
     relation: String,
-    flag: bool
-    // facts: Vec<String>
+    flag: bool,
+    facts: Vec<String>
 }
 
 
@@ -236,9 +236,6 @@ fn parse_rules(rule_file:&str) -> Vec<Rules>{
     let binding = rule_contents.trim().replace("\n", "").replace("\r", "");
     let rules: Vec<&str> = binding.split(".").filter(|s| !s.is_empty()).collect();
     for rule in rules{
-        // if rule == "" {
-        //     continue;
-        // }
         let parts: Vec<&str> = rule.split(":").filter(|s| !s.is_empty()).collect();
         let speaker = parts[0];
         let mut relation = "sign";
@@ -246,35 +243,12 @@ fn parse_rules(rule_file:&str) -> Vec<Rules>{
             relation = parts[1];
         } 
         let new_rule = Rules { speaker: speaker.replace("$", ""), relation: relation.to_owned(), flag: speaker.contains("$") };
-        
-        // let token_re = Regex::new(r"\((.*?)\)").unwrap();
-        // let sp:Vec<&str> = speaker.split("(").collect();
-        // let rt:Vec<&str> = relation.split("(").collect();
-
-        // let mut new_rule = Rules{..Default::default()};
-        // new_rule.relation = rt[0].to_string();
-        // new_rule.speaker = sp[0].to_string();
-        // for cap in token_re.captures_iter(speaker){
-        //     // println!("{}", &cap[1]);
-        //     let conditions: Vec<&str> = cap[1].split(",").collect();
-        //     for cond in conditions{
-        //         let pair: Vec<&str> = cond.split("=").collect();
-        //         new_rule.condition.push((pair[0].to_owned(),pair[1].to_owned()));
-        //     }
-        // }
-        // for cap in token_re.captures_iter(relation){
-        //     // println!("{}", &cap[1]);
-        //     let facts: Vec<&str> = cap[1].split(",").collect();
-        //     for fact in facts{
-        //         new_rule.facts.push(fact.to_string());
-        //     }
-        // }
         types.push(new_rule);
     }
     return types;
 }
 
-pub fn build_facts_library(dirname:&str, sourcetype: &str){
+pub fn build_facts_library(dirname:&str, sourcetype: &str, u: &Universe){
     
     // let re: Regex = Regex::new(r"\((.+)\)").unwrap();
     
@@ -300,24 +274,13 @@ pub fn build_facts_library(dirname:&str, sourcetype: &str){
     }
 
     for path in paths {
-        let _ =   parse_files(path.unwrap().path().as_os_str().to_str().unwrap(), sourcetype,  &rules);
+        let _ =   parse_files(path.unwrap().path().as_os_str().to_str().unwrap(), sourcetype,  &rules, u);
     }
     
+}
 
-    // println!("Result: {:?}", result);
-    // let output = Command::new("swipl")
-    //     .arg("-f")
-    //     .arg("IntotoCheck.pl")
-    //     .arg("-g")
-    //     .arg("main")
-    //     .arg("-t")
-    //     .arg("halt")
-    //     .output()
-    //     .expect("check failed to start");
-
-    // if output.status.success() {
-    //     println!("Intoto check passed");
-    // } else {
-    //     println!("Intoto check failed");
-    // }
+#[test]
+fn test_compiler(){
+    let mut u = Universe::new();
+    build_facts_library("DemoData/Intoto/","Intoto", u);
 }

@@ -1,9 +1,10 @@
 
 #[cfg(test)]
 mod test;
+mod compiler;
 
 use crate::{
-    ast::{self, Query, Sym, Principal},
+    types::{self, Query, Sym, Principal},
     term_library::{self, TermLibrary},
     universe::{CompiledRule, CompiledRuleDb, Universe},
 };
@@ -77,7 +78,7 @@ impl<'s> SolutionIter<'s> {
         }
     }
 
-    pub fn get_solution(&self) -> Vec<Option<ast::Term>> {
+    pub fn get_solution(&self) -> Vec<Option<types::Term>> {
         self.solution.get_solution()
     }
 
@@ -117,7 +118,7 @@ impl<'s> SolutionIter<'s> {
 }
 
 impl<'s> Iterator for SolutionIter<'s> {
-    type Item = Vec<Option<ast::Term>>;
+    type Item = Vec<Option<types::Term>>;
 
     fn next(&mut self) -> Option<Self::Item> {
         loop {
@@ -211,16 +212,16 @@ impl SolutionState {
         self.lib.release(&checkpoint.lib_checkpoint);
     }
 
-    fn get_solution_term(&self, term: term_library::TermId) -> ast::Term {
+    fn get_solution_term(&self, term: term_library::TermId) -> types::Term {
         match self.lib.get_term(term) {
             term_library::Term::Principal(p) => {
                 if let Some(value) = &self.map[p.ord()] {
                     self.get_solution_term(*value)
                 } else {
-                    ast::Term::Principal(p)
+                    types::Term::Principal(p)
                 }
             }
-            term_library::Term::Pred(relation, args) => ast::Term::Pred(ast::Predicate {
+            term_library::Term::Pred(relation, args) => types::Term::Pred(types::Predicate {
                 relation,
                 args: args
                     .map(|arg_id| self.get_solution_term(self.lib.get_arg(arg_id)))
@@ -229,7 +230,7 @@ impl SolutionState {
         }
     }
 
-    fn get_solution(&self) -> Vec<Option<ast::Term>> {
+    fn get_solution(&self) -> Vec<Option<types::Term>> {
         self.map
             .iter()
             .take(self.goal_nums)

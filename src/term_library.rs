@@ -1,4 +1,4 @@
-use crate::ast::{self, Sym, Principal};
+use crate::types::{self, Sym, Principal};
 
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Debug)]
 #[repr(transparent)]
@@ -69,14 +69,14 @@ impl TermLibrary {
     }
 
     
-    pub fn insert_ast_term(&mut self, ids: &mut Vec<TermId>, term: &ast::Term) -> TermId {
+    pub fn insert_ast_term(&mut self, ids: &mut Vec<TermId>, term: &types::Term) -> TermId {
         match term {
-            ast::Term::Principal(pcpl) => self.principal(*pcpl),
-            ast::Term::Pred(pred) => self.insert_ast_predicate(ids, pred),
+            types::Term::Principal(pcpl) => self.principal(*pcpl),
+            types::Term::Pred(pred) => self.insert_ast_predicate(ids, pred),
         }
     }
 
-    pub fn insert_ast_predicate(&mut self, ids: &mut Vec<TermId>, pred: &ast::Predicate) -> TermId {
+    pub fn insert_ast_predicate(&mut self, ids: &mut Vec<TermId>, pred: &types::Predicate) -> TermId {
         let args_start = ids.len();
         for arg in &pred.args {
             let pred_id = self.insert_ast_term(ids, arg);

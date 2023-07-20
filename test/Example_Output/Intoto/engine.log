@@ -1,0 +1,205 @@
+
+running 1 test
+Sym: Sym(59), Value: Number(0)
+Sym: Sym(88), Value: String("3621916968137504121")
+Sym: Sym(27), Value: Array([String("17182074763062909189")])
+Sym: Sym(46), Value: String("/home/lukas/demo/grep-2.12/.pc/.version")
+Sym: Sym(89), Value: String("-----BEGIN PUBLIC KEY-----\\nMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKC...")
+Sym: Sym(96), Value: String("2210284986068062705")
+Sym: Sym(83), Value: Array([String("4203241373099102994"), String("14138240092749512347"), String("4591744865323227800"), String("16355790422116142028")])
+Sym: Sym(3), Value: String("12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2")
+Sym: Sym(18), Value: String("37887d8aecec66e75365abd8c41be94f75e7a3acf1d6b27fc121584f47281525")
+Sym: Sym(64), Value: String("7539901198141123327")
+Sym: Sym(72), Value: String("step")
+Sym: Sym(28), Value: String("7419300989600828064")
+Sym: Sym(80), Value: Array([String("[\"MATCH\",\"*\",\"WITH\",\"PRODUCTS\",\"FROM\",\"modify\"]")])
+Sym: Sym(5), Value: String("signatures")
+Sym: Sym(49), Value: String("eee01bf4de92df307b7f1b6fa740e1c0e0c8c28d6a12b6939ddec0708699da25")
+Sym: Sym(24), Value: String("4988575101953877571")
+Sym: Sym(65), Value: String("13470396812858591841")
+Sym: Sym(66), Value: String("9c3a5609e79ea68f9d7aa4b72e5ab1f00b7773f06912b789add45da026f46621b9e...")
+Sym: Sym(79), Value: String("16355790422116142028")
+Sym: Sym(87), Value: String("rsa")
+Sym: Sym(54), Value: String("15559580635576652301")
+Sym: Sym(68), Value: String("197050818602347943")
+Sym: Sym(58), Value: String("dpkg-source: info: extracting grep in grep-2.12\\ndpkg-source: info: ...")
+Sym: Sym(70), Value: String("4203241373099102994")
+Sym: Sym(98), Value: String(" dpkg-source --before-build grep-2.12\\n fakeroot debian/rules clean\\n...")
+Sym: Sym(76), Value: Array([String("[\"MATCH\",\"*\",\"WITH\",\"PRODUCTS\",\"FROM\",\"fetch\"]")])
+Sym: Sym(78), Value: Array([String("[\"MATCH\",\"*\",\"WITH\",\"PRODUCTS\",\"FROM\",\"extract\"]")])
+Sym: Sym(86), Value: String("201413837387964744")
+Sym: Sym(23), Value: Array([String("\"dget\""), String("\"http://cdn.debian.net/debian/pool/main/g/grep/grep_2.12-2.dsc\"")])
+Sym: Sym(51), Value: String("0c933cbdacb739761f7cf9be1d9c0543b8a5cb0c1cf4031fc7add8e81146c1a6")
+Sym: Sym(33), Value: String("/home/lukas/demo/grep-2.12/.pc/.quilt_series")
+Sym: Sym(36), Value: String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/configure")
+Sym: Sym(61), Value: String("3528252443882684044")
+Sym: Sym(73), Value: Array([String("\"12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2\"")])
+Sym: Sym(37), Value: String("fda1f6c62f081999b74177f560e14db0b0b2f93cd632ed4a02f6ac2582fc27bf")
+Sym: Sym(77), Value: String("4591744865323227800")
+Sym: Sym(16), Value: String("6710812177529316956")
+Sym: Sym(41), Value: String("90b74e6c5542b0db506c372f77c45ceab8d7289432cfe37bce11d611a4827a4d")
+Sym: Sym(8), Value: String("link")
+Sym: Sym(29), Value: String("15055435855460970875")
+Sym: Sym(55), Value: Array([String("\"dpkg-source\""), String("\"-x\""), String("\"grep_2.12-2.dsc\"")])
+Sym: Sym(44), Value: String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/src/pcresearch.c")
+Sym: Sym(10), Value: String("sign")
+Sym: Sym(22), Value: String("0119987171cd60b87c89557524fc6636bdad770dae71917adcaef6abffb1be67")
+Sym: Sym(32), Value: String("9404120044764687080")
+Sym: Sym(40), Value: String("/home/lukas/demo/grep-2.12/.pc/04-446854-grep.1.patch/doc/grep.in.1")
+Sym: Sym(56), Value: String("extract")
+Sym: Sym(42), Value: String("/home/lukas/demo/grep-2.12/.pc/80-587930-man-ere-reference.patch/doc/grep.in.1")
+Sym: Sym(48), Value: String("/home/lukas/demo/grep-2.12/.pc/70-man_apostrophe.patch/doc/grep.in.1")
+Sym: Sym(84), Value: String("layout")
+Sym: Sym(17), Value: String("/home/lukas/demo/grep_2.12-2.debian.tar.bz2")
+Sym: Sym(34), Value: String("9afbb183d1b683d2770aecb9b379093804ccc56027f07ecf7fc252d5b93a8df2")
+Sym: Sym(47), Value: String("53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3")
+Sym: Sym(12), Value: String("dget: retrieving http://cdn.debian.net/debian/pool/main/g/grep/grep...")
+Sym: Sym(11), Value: String("2226614402344454911")
+Sym: Sym(53), Value: String("9232462238871463086")
+Sym: Sym(91), Value: String("3999759271652749985")
+Sym: Sym(15), Value: String("fetch")
+Sym: Sym(19), Value: String("/home/lukas/demo/grep_2.12-2.dsc")
+Sym: Sym(69), Value: String("2017-09-02T12:57:02Z")
+Sym: Sym(0), Value: String("17958788776441355237")
+Sym: Sym(13), Value: String("--2017-08-08 11:05:06--  http://cdn.debian.net/debian/pool/main/g/g...")
+Sym: Sym(75), Value: String("14138240092749512347")
+Sym: Sym(38), Value: String("/home/lukas/demo/grep-2.12/.pc/.quilt_patches")
+Sym: Sym(50), Value: String("/home/lukas/demo/grep-2.12/.pc/02-man_rgrep.patch/doc/grep.in.1")
+Sym: Sym(67), Value: Array([String("13470396812858591841")])
+Sym: Sym(2), Value: String("RSASSA-PSS")
+Sym: Sym(93), Value: String("3877a06dee3f6e140e20d5100964adb38c1c63dd89803087204d561c0adbfed17c2...")
+Sym: Sym(62), Value: String("9b89cf0a74a1d53359460982cdc3dcbdef2b291a284b977fadb839501d7324fe581...")
+Sym: Sym(31), Value: Array([])
+Sym: Sym(30), Value: String("null")
+Sym: Sym(4), Value: String("a0d3237a59a96343b2e2caee2bf0e27a249a01f796c3fec53f184fc2720b44dd7b2...")
+Sym: Sym(95), Value: String("17046612084282012057")
+Sym: Sym(97), Value: String("dpkg-buildpackage: source package grep\\ndpkg-buildpackage: source ve...")
+Sym: Sym(57), Value: String("16286064594038341640")
+Sym: Sym(39), Value: String("0623de532bc23399e87e6c1914e8e90e999efbfd26b6b956666a493893739f0d")
+Sym: Sym(92), Value: String("10982446533290072216")
+Sym: Sym(71), Value: Array([String("[\"DISALLOW\",\"*\"]")])
+Sym: Sym(85), Value: String("")
+Sym: Sym(20), Value: String("a6a63fd21da40d11ce6ae2bc6f633bd27cd206c2348b2ef306e1b68120f7e58e")
+Sym: Sym(43), Value: String("30378876bf1c1a13449c993fb7a6406089f7f77a34f96fed5c6c742e75a395b6")
+Sym: Sym(26), Value: String("6c922765260c71bbe0eef0267c2ad6f226eeec43ef45b5dcba6314f52adba655265...")
+Sym: Sym(7), Value: String("16469545966398679882")
+Sym: Sym(9), Value: String("6086514543335466803")
+Sym: Sym(14), Value: Number(1)
+Sym: Sym(35), Value: String("...")
+Sym: Sym(74), Value: Array([String("[\"ALLOW\",\"*\"]")])
+Sym: Sym(52), Value: String("modify")
+Sym: Sym(6), Value: Array([String("10497978779902872773")])
+Sym: Sym(60), Value: String("gpgv: Signature made Sun 13 May 2012 08:23:12 AM EDT using DSA key ...")
+Sym: Sym(81), Value: Array([String("\"dpkg-buildpackage\""), String("\"-us\""), String("\"-uc\"")])
+Sym: Sym(63), Value: Array([String("3528252443882684044")])
+Sym: Sym(21), Value: String("/home/lukas/demo/grep_2.12.orig.tar.bz2")
+Sym: Sym(45), Value: String("08e24565e42cf5e2aeff2ca65cc4e3a8de5fa65260ea1a2d1ae872b45c3b6a25")
+Sym: Sym(25), Value: String("17182074763062909189")
+Sym: Sym(82), Value: String("build")
+Sym: Sym(90), Value: String("key_info")
+Sym: Sym(94), Value: Array([String("10982446533290072216")])
+Sym: Sym(1), Value: String("10497978779902872773")
+relation:String("signatures"), args: [String("10497978779902872773"), String("RSASSA-PSS"), String("12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2"), String("a0d3237a59a96343b2e2caee2bf0e27a249a01f796c3fec53f184fc2720b44dd7b2...")], sub_rule:[]
+relation:String("sign"), args: [String("6086514543335466803")], sub_rule:[]
+relation:String("sign"), args: [String("6086514543335466803")], sub_rule:[]
+relation:String("sign"), args: [String("2226614402344454911"), String("dget: retrieving http://cdn.debian.net/debian/pool/main/g/grep/grep..."), String("--2017-08-08 11:05:06--  http://cdn.debian.net/debian/pool/main/g/g..."), Number(1)], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep_2.12-2.debian.tar.bz2"), String("37887d8aecec66e75365abd8c41be94f75e7a3acf1d6b27fc121584f47281525")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep_2.12-2.dsc"), String("a6a63fd21da40d11ce6ae2bc6f633bd27cd206c2348b2ef306e1b68120f7e58e")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep_2.12.orig.tar.bz2"), String("0119987171cd60b87c89557524fc6636bdad770dae71917adcaef6abffb1be67")], sub_rule:[]
+relation:String("sign"), args: [String("6710812177529316956"), String("/home/lukas/demo/grep_2.12-2.debian.tar.bz2"), String("/home/lukas/demo/grep_2.12-2.dsc"), String("/home/lukas/demo/grep_2.12.orig.tar.bz2")], sub_rule:[]
+relation:String("sign"), args: [String("16469545966398679882"), String("link"), String("6086514543335466803"), String("6086514543335466803"), String("2226614402344454911"), String("fetch"), String("6710812177529316956"), Array([String("\"dget\""), String("\"http://cdn.debian.net/debian/pool/main/g/grep/grep_2.12-2.dsc\"")])], sub_rule:[]
+relation:String("sign"), args: [String("17958788776441355237"), Array([String("10497978779902872773")]), String("16469545966398679882")], sub_rule:[]
+relation:String("signatures"), args: [String("17182074763062909189"), String("12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2"), String("RSASSA-PSS"), String("6c922765260c71bbe0eef0267c2ad6f226eeec43ef45b5dcba6314f52adba655265...")], sub_rule:[]
+relation:String("sign"), args: [String("15055435855460970875"), String("null"), String("null"), String("null")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.quilt_series"), String("9afbb183d1b683d2770aecb9b379093804ccc56027f07ecf7fc252d5b93a8df2")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/configure"), String("fda1f6c62f081999b74177f560e14db0b0b2f93cd632ed4a02f6ac2582fc27bf")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.quilt_patches"), String("0623de532bc23399e87e6c1914e8e90e999efbfd26b6b956666a493893739f0d")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/04-446854-grep.1.patch/doc/grep.in.1"), String("90b74e6c5542b0db506c372f77c45ceab8d7289432cfe37bce11d611a4827a4d")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/80-587930-man-ere-reference.patch/doc/grep.in.1"), String("30378876bf1c1a13449c993fb7a6406089f7f77a34f96fed5c6c742e75a395b6")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/src/pcresearch.c"), String("08e24565e42cf5e2aeff2ca65cc4e3a8de5fa65260ea1a2d1ae872b45c3b6a25")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.version"), String("53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/70-man_apostrophe.patch/doc/grep.in.1"), String("eee01bf4de92df307b7f1b6fa740e1c0e0c8c28d6a12b6939ddec0708699da25")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/02-man_rgrep.patch/doc/grep.in.1"), String("0c933cbdacb739761f7cf9be1d9c0543b8a5cb0c1cf4031fc7add8e81146c1a6")], sub_rule:[]
+relation:String("sign"), args: [String("9404120044764687080"), String("/home/lukas/demo/grep-2.12/.pc/.quilt_series"), String("..."), String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/configure"), String("/home/lukas/demo/grep-2.12/.pc/.quilt_patches"), String("/home/lukas/demo/grep-2.12/.pc/04-446854-grep.1.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/80-587930-man-ere-reference.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/src/pcresearch.c"), String("/home/lukas/demo/grep-2.12/.pc/.version"), String("/home/lukas/demo/grep-2.12/.pc/70-man_apostrophe.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/02-man_rgrep.patch/doc/grep.in.1")], sub_rule:[]
+relation:String("sign"), args: [String("6086514543335466803")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/70-man_apostrophe.patch/doc/grep.in.1"), String("eee01bf4de92df307b7f1b6fa740e1c0e0c8c28d6a12b6939ddec0708699da25")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/04-446854-grep.1.patch/doc/grep.in.1"), String("90b74e6c5542b0db506c372f77c45ceab8d7289432cfe37bce11d611a4827a4d")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/configure"), String("fda1f6c62f081999b74177f560e14db0b0b2f93cd632ed4a02f6ac2582fc27bf")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/80-587930-man-ere-reference.patch/doc/grep.in.1"), String("30378876bf1c1a13449c993fb7a6406089f7f77a34f96fed5c6c742e75a395b6")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.quilt_patches"), String("0623de532bc23399e87e6c1914e8e90e999efbfd26b6b956666a493893739f0d")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/src/pcresearch.c"), String("08e24565e42cf5e2aeff2ca65cc4e3a8de5fa65260ea1a2d1ae872b45c3b6a25")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.version"), String("53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/02-man_rgrep.patch/doc/grep.in.1"), String("0c933cbdacb739761f7cf9be1d9c0543b8a5cb0c1cf4031fc7add8e81146c1a6")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.quilt_series"), String("9afbb183d1b683d2770aecb9b379093804ccc56027f07ecf7fc252d5b93a8df2")], sub_rule:[]
+relation:String("sign"), args: [String("9404120044764687080"), String("/home/lukas/demo/grep-2.12/.pc/70-man_apostrophe.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/04-446854-grep.1.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/configure"), String("/home/lukas/demo/grep-2.12/.pc/80-587930-man-ere-reference.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/.quilt_patches"), String("..."), String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/src/pcresearch.c"), String("/home/lukas/demo/grep-2.12/.pc/.version"), String("/home/lukas/demo/grep-2.12/.pc/02-man_rgrep.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/.quilt_series")], sub_rule:[]
+relation:String("sign"), args: [String("7419300989600828064"), String("15055435855460970875"), Array([]), String("9404120044764687080"), String("6086514543335466803"), String("link"), String("modify"), String("9404120044764687080")], sub_rule:[]
+relation:String("sign"), args: [String("4988575101953877571"), Array([String("17182074763062909189")]), String("7419300989600828064")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/80-587930-man-ere-reference.patch/doc/grep.in.1"), String("30378876bf1c1a13449c993fb7a6406089f7f77a34f96fed5c6c742e75a395b6")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.quilt_patches"), String("0623de532bc23399e87e6c1914e8e90e999efbfd26b6b956666a493893739f0d")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.quilt_series"), String("9afbb183d1b683d2770aecb9b379093804ccc56027f07ecf7fc252d5b93a8df2")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/02-man_rgrep.patch/doc/grep.in.1"), String("0c933cbdacb739761f7cf9be1d9c0543b8a5cb0c1cf4031fc7add8e81146c1a6")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/70-man_apostrophe.patch/doc/grep.in.1"), String("eee01bf4de92df307b7f1b6fa740e1c0e0c8c28d6a12b6939ddec0708699da25")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/04-446854-grep.1.patch/doc/grep.in.1"), String("90b74e6c5542b0db506c372f77c45ceab8d7289432cfe37bce11d611a4827a4d")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/src/pcresearch.c"), String("08e24565e42cf5e2aeff2ca65cc4e3a8de5fa65260ea1a2d1ae872b45c3b6a25")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.version"), String("53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/configure"), String("fda1f6c62f081999b74177f560e14db0b0b2f93cd632ed4a02f6ac2582fc27bf")], sub_rule:[]
+relation:String("sign"), args: [String("9404120044764687080"), String("/home/lukas/demo/grep-2.12/.pc/80-587930-man-ere-reference.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/.quilt_patches"), String("/home/lukas/demo/grep-2.12/.pc/.quilt_series"), String("/home/lukas/demo/grep-2.12/.pc/02-man_rgrep.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/70-man_apostrophe.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/04-446854-grep.1.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/src/pcresearch.c"), String("/home/lukas/demo/grep-2.12/.pc/.version"), String("..."), String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/configure")], sub_rule:[]
+relation:String("sign"), args: [String("16286064594038341640"), String("dpkg-source: info: extracting grep in grep-2.12\\ndpkg-source: info: ..."), Number(0), String("gpgv: Signature made Sun 13 May 2012 08:23:12 AM EDT using DSA key ...")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep_2.12-2.debian.tar.bz2"), String("37887d8aecec66e75365abd8c41be94f75e7a3acf1d6b27fc121584f47281525")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep_2.12-2.dsc"), String("a6a63fd21da40d11ce6ae2bc6f633bd27cd206c2348b2ef306e1b68120f7e58e")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep_2.12.orig.tar.bz2"), String("0119987171cd60b87c89557524fc6636bdad770dae71917adcaef6abffb1be67")], sub_rule:[]
+relation:String("sign"), args: [String("6710812177529316956"), String("/home/lukas/demo/grep_2.12-2.debian.tar.bz2"), String("/home/lukas/demo/grep_2.12-2.dsc"), String("/home/lukas/demo/grep_2.12.orig.tar.bz2")], sub_rule:[]
+relation:String("sign"), args: [String("6086514543335466803")], sub_rule:[]
+relation:String("sign"), args: [String("15559580635576652301"), String("link"), Array([String("\"dpkg-source\""), String("\"-x\""), String("\"grep_2.12-2.dsc\"")]), String("extract"), String("9404120044764687080"), String("16286064594038341640"), String("6710812177529316956"), String("6086514543335466803")], sub_rule:[]
+relation:String("signatures"), args: [String("3528252443882684044"), String("12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2"), String("RSASSA-PSS"), String("9b89cf0a74a1d53359460982cdc3dcbdef2b291a284b977fadb839501d7324fe581...")], sub_rule:[]
+relation:String("sign"), args: [String("9232462238871463086"), String("15559580635576652301"), Array([String("3528252443882684044")])], sub_rule:[]
+relation:String("signatures"), args: [String("13470396812858591841"), String("9c3a5609e79ea68f9d7aa4b72e5ab1f00b7773f06912b789add45da026f46621b9e..."), String("12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2"), String("RSASSA-PSS")], sub_rule:[]
+relation:String("sign"), args: [String("4203241373099102994"), Number(1), Array([String("[\"DISALLOW\",\"*\"]")]), String("step"), Array([String("\"12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2\"")]), Array([String("\"dget\""), String("\"http://cdn.debian.net/debian/pool/main/g/grep/grep_2.12-2.dsc\"")]), String("fetch"), Array([String("[\"ALLOW\",\"*\"]")])], sub_rule:[]
+relation:String("sign"), args: [String("14138240092749512347"), Array([String("[\"MATCH\",\"*\",\"WITH\",\"PRODUCTS\",\"FROM\",\"fetch\"]")]), Number(1), String("extract"), Array([String("\"12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2\"")]), Array([String("\"dpkg-source\""), String("\"-x\""), String("\"grep_2.12-2.dsc\"")]), String("step"), Array([String("[\"ALLOW\",\"*\"]")])], sub_rule:[]
+relation:String("sign"), args: [String("4591744865323227800"), Number(1), String("step"), Array([String("[\"ALLOW\",\"*\"]")]), Array([String("\"12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2\"")]), String("modify"), Array([]), Array([String("[\"MATCH\",\"*\",\"WITH\",\"PRODUCTS\",\"FROM\",\"extract\"]")])], sub_rule:[]
+relation:String("sign"), args: [String("16355790422116142028"), Number(1), Array([String("[\"MATCH\",\"*\",\"WITH\",\"PRODUCTS\",\"FROM\",\"modify\"]")]), Array([String("\"dpkg-buildpackage\""), String("\"-us\""), String("\"-uc\"")]), Array([String("[\"ALLOW\",\"*\"]")]), String("step"), Array([String("\"12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2\"")]), String("build")], sub_rule:[]
+relation:String("sign"), args: [String("3621916968137504121"), String("-----BEGIN PUBLIC KEY-----\\nMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKC..."), String("")], sub_rule:[]
+relation:String("sign"), args: [String("12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2"), String("rsa"), String("12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2"), String("3621916968137504121")], sub_rule:[]
+relation:String("key_info"), args: [String("201413837387964744"), String("12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2")], sub_rule:[]
+relation:String("sign"), args: [String("197050818602347943"), String("2017-09-02T12:57:02Z"), Array([String("4203241373099102994"), String("14138240092749512347"), String("4591744865323227800"), String("16355790422116142028")]), String("layout"), String(""), Array([]), String("201413837387964744")], sub_rule:[]
+relation:String("sign"), args: [String("7539901198141123327"), Array([String("13470396812858591841")]), String("197050818602347943")], sub_rule:[]
+relation:String("signatures"), args: [String("10982446533290072216"), String("RSASSA-PSS"), String("12c55e46654c682d3ffd3b63492adf422e6812eb1ac41574d083b9e770d1e4c2"), String("3877a06dee3f6e140e20d5100964adb38c1c63dd89803087204d561c0adbfed17c2...")], sub_rule:[]
+relation:String("sign"), args: [String("6086514543335466803")], sub_rule:[]
+relation:String("sign"), args: [String("2210284986068062705"), String("dpkg-buildpackage: source package grep\\ndpkg-buildpackage: source ve..."), String(" dpkg-source --before-build grep-2.12\\n fakeroot debian/rules clean\\n..."), Number(0)], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/70-man_apostrophe.patch/doc/grep.in.1"), String("eee01bf4de92df307b7f1b6fa740e1c0e0c8c28d6a12b6939ddec0708699da25")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/src/pcresearch.c"), String("08e24565e42cf5e2aeff2ca65cc4e3a8de5fa65260ea1a2d1ae872b45c3b6a25")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/02-man_rgrep.patch/doc/grep.in.1"), String("0c933cbdacb739761f7cf9be1d9c0543b8a5cb0c1cf4031fc7add8e81146c1a6")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.quilt_series"), String("9afbb183d1b683d2770aecb9b379093804ccc56027f07ecf7fc252d5b93a8df2")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.version"), String("53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/04-446854-grep.1.patch/doc/grep.in.1"), String("90b74e6c5542b0db506c372f77c45ceab8d7289432cfe37bce11d611a4827a4d")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/configure"), String("fda1f6c62f081999b74177f560e14db0b0b2f93cd632ed4a02f6ac2582fc27bf")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/80-587930-man-ere-reference.patch/doc/grep.in.1"), String("30378876bf1c1a13449c993fb7a6406089f7f77a34f96fed5c6c742e75a395b6")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.quilt_patches"), String("0623de532bc23399e87e6c1914e8e90e999efbfd26b6b956666a493893739f0d")], sub_rule:[]
+relation:String("sign"), args: [String("9404120044764687080"), String("/home/lukas/demo/grep-2.12/.pc/70-man_apostrophe.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/src/pcresearch.c"), String("/home/lukas/demo/grep-2.12/.pc/02-man_rgrep.patch/doc/grep.in.1"), String("..."), String("/home/lukas/demo/grep-2.12/.pc/.quilt_series"), String("/home/lukas/demo/grep-2.12/.pc/.version"), String("/home/lukas/demo/grep-2.12/.pc/04-446854-grep.1.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/configure"), String("/home/lukas/demo/grep-2.12/.pc/80-587930-man-ere-reference.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/.quilt_patches")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.quilt_patches"), String("0623de532bc23399e87e6c1914e8e90e999efbfd26b6b956666a493893739f0d")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/configure"), String("fda1f6c62f081999b74177f560e14db0b0b2f93cd632ed4a02f6ac2582fc27bf")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/02-man_rgrep.patch/doc/grep.in.1"), String("0c933cbdacb739761f7cf9be1d9c0543b8a5cb0c1cf4031fc7add8e81146c1a6")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.quilt_series"), String("9afbb183d1b683d2770aecb9b379093804ccc56027f07ecf7fc252d5b93a8df2")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/04-446854-grep.1.patch/doc/grep.in.1"), String("90b74e6c5542b0db506c372f77c45ceab8d7289432cfe37bce11d611a4827a4d")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/80-587930-man-ere-reference.patch/doc/grep.in.1"), String("30378876bf1c1a13449c993fb7a6406089f7f77a34f96fed5c6c742e75a395b6")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/.version"), String("53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/src/pcresearch.c"), String("08e24565e42cf5e2aeff2ca65cc4e3a8de5fa65260ea1a2d1ae872b45c3b6a25")], sub_rule:[]
+relation:String("sign"), args: [String("/home/lukas/demo/grep-2.12/.pc/70-man_apostrophe.patch/doc/grep.in.1"), String("eee01bf4de92df307b7f1b6fa740e1c0e0c8c28d6a12b6939ddec0708699da25")], sub_rule:[]
+relation:String("sign"), args: [String("9404120044764687080"), String("/home/lukas/demo/grep-2.12/.pc/.quilt_patches"), String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/configure"), String("/home/lukas/demo/grep-2.12/.pc/02-man_rgrep.patch/doc/grep.in.1"), String("..."), String("/home/lukas/demo/grep-2.12/.pc/.quilt_series"), String("/home/lukas/demo/grep-2.12/.pc/04-446854-grep.1.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/80-587930-man-ere-reference.patch/doc/grep.in.1"), String("/home/lukas/demo/grep-2.12/.pc/.version"), String("/home/lukas/demo/grep-2.12/.pc/03-397262-dlopen-pcre.patch/src/pcresearch.c"), String("/home/lukas/demo/grep-2.12/.pc/70-man_apostrophe.patch/doc/grep.in.1")], sub_rule:[]
+relation:String("sign"), args: [String("17046612084282012057"), String("build"), String("6086514543335466803"), String("link"), Array([String("\"dpkg-buildpackage\""), String("\"-us\""), String("\"-uc\"")]), String("2210284986068062705"), String("9404120044764687080"), String("9404120044764687080")], sub_rule:[]
+relation:String("sign"), args: [String("3999759271652749985"), Array([String("10982446533290072216")]), String("17046612084282012057")], sub_rule:[]
+matching record: 0
+terms: String("17182074763062909189")
+terms: String("201413837387964744")
+terms: String("RSASSA-PSS")
+terms: String("6c922765260c71bbe0eef0267c2ad6f226eeec43ef45b5dcba6314f52adba655265...")
+matching record: 1
+terms: String("3528252443882684044")
+terms: String("201413837387964744")
+terms: String("RSASSA-PSS")
+terms: String("9b89cf0a74a1d53359460982cdc3dcbdef2b291a284b977fadb839501d7324fe581...")
+Query succeeded!
+test engine::compiler::test_compiler ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+

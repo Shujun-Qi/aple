@@ -1,0 +1,30 @@
+:-module(Intoto, [
+    root_key/2,
+    contains/2,
+    validate/2
+]).
+
+root_key(R, H):-
+    member(R, L1),
+    sign(S, L1),
+    member(S, L2),
+    signatures(K, L2),
+    member(K, L3),
+    sign(H, L3),
+    #hash(H),
+    key_info(R, [R|_]).
+
+contains(K, P):-
+    sign(K, L),
+    (
+        member(P, L) -> 
+        true
+        ;
+        member(K1, L), 
+        contains(K1, P)
+        ;
+    )
+
+validate(R, P):-
+    root_key(R, H),
+    contains(H, P).

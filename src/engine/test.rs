@@ -1,5 +1,5 @@
 use super::*;
-use crate::ast::*;
+use crate::types::*;
 use crate::universe::Universe;
 
 #[test]
@@ -52,7 +52,7 @@ fn genealogy() {
             .add_sub_rule(parent, vec![p.into(), c1.into()])
             .add_sub_rule(parent, vec![p.into(), c2.into()])
     }));
-
+    println!("rules: {:?}", u.rules());
     // query all known grandparents of eve
     let solutions = query_dfs(
         &u,

@@ -1,5 +1,5 @@
 use crate::{
-    ast::*,
+    types::*,
     term_library::{self, TermLibrary},
 };
 

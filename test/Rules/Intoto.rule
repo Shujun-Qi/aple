@@ -1,30 +1,21 @@
-:-module(Intoto, [
-    root_key/2,
-    contains/2,
-    validate/2
-]).
+#Intoto validation 5.2.1
+validate_root(layout):-
+    root($keyid, $pub_key),
+    signs(layout, $pub_key, $sig),
+    sig($keyid, $method, $sig).
 
-root_key(R, H):-
-    member(R, L1),
-    sign(S, L1),
-    member(S, L2),
-    signatures(K, L2),
-    member(K, L3),
-    sign(H, L3),
-    #hash(H),
-    key_info(R, [R|_]).
+validate_link($file):-
+    validate_key($keyid, $public),
+    signs($file, $public, $sig),
+    sig($keyid, $method, $sig).
 
-contains(K, P):-
-    sign(K, L),
-    (
-        member(P, L) -> 
-        true
-        ;
-        member(K1, L), 
-        contains(K1, P)
-        ;
-    )
+validate_key($keyid, $public):-
+    validate_root(layout),
+    keys(layout, $keyid),
+    key_info($keyid, $keytype, $private, $public).
 
-validate(R, P):-
-    root_key(R, H),
-    contains(H, P).
+validate_threshold($file):-
+    threshold(layout, $step, $threshold),
+    count(validate_link($file), $len),
+    geq($len, $threshold).
+

@@ -1,0 +1,134 @@
+{
+ "signatures": [
+  {
+   "keyid": "e884d87ca68fc6704de4d0562bca5e1fef0cd35999e0021109f13d943dbe4053",
+   "method": "RSASSA-PSS",
+   "sig": "9c3a5609e79ea68f9d7aa4b72e5ab1f00b7773f06912b789add45da026f46621b9ed06739bec692e7ea33ffc4a6dbd1e54c1e37cd01de233eeed924da836b0ab7c3893752e011b0d95827eff5644d9f139ed5873ed065834328efb837032299a55e27aa4679ecf6f6ae9b4754112a951cdad9f0a54607c19bab67c9f7460b1e29caa8d31ff8f97f38268c4facc53d6a364d00010bb619d891d36d01fa69607e3c230aa6d2d2f8ac3ae9f9a5568d2503e00d8080111b4563594f2fecaef0630882d45c82b818b822ab0fac216eae5cc034e66547b9f6d80364924a8c5fd2011d9766a932fd5805d947aa1a931032dceca4fcb5d89714248c01ca5b87b8bdd603695221ca65410e8c93a7a1a394f59f798307c5f0ab3c56c4ead18f920c7836643c0519e8d33cb6141a6e776fa17d1a05a6009198d5fe4c3839471007a40345a12645f9dd0e274e588dfbc3a2171bcbf822509f0b2b4d8ea85c06be9a4570619807e40bfc1988467d2e9390a40cae186dcfc523bccf0f93e08fb65f6fdc8416e2a"
+  }
+ ],
+ "signed": {
+  "_type": "layout",
+  "expires": "2017-09-02T12:57:02Z",
+  "inspect": [],
+  "keys": {
+   "e884d87ca68fc6704de4d0562bca5e1fef0cd35999e0021109f13d943dbe4053": {
+    "keyid": "e884d87ca68fc6704de4d0562bca5e1fef0cd35999e0021109f13d943dbe4053",
+    "keytype": "rsa",
+    "keyval": {
+     "private": "",
+     "public": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1WqSRcE2Fvnm6vtJw/+6\nyc3AXkGRPBguUn8xV4aH5sky458rBUVaqRLz98JjsgQVB9TQlKh2a9GBqZsWjAUz\n4BbbDI9c1VJjirQcmG6t0jijfIzED9FXuCg2kL9vKpoFq1920S5AYh5CnLVXGqd5\no8hVC2ptrql3GVWW3tIgm9QzFwkmStlLEcJLu0hYYWTxtZlMhQw/12EdFDZ9RV/s\nJrOm8RMEmRO5mIt4XKbjpg84q2Qs+t8oiL/zvthH88HbsnQhIp8hwqQ58pPb/u7v\n+nYJ00kb76nuOioSeRSXj2jJkzuv6m3pWCGnEhsSfj1Btp4GjxENYf/xH8i6/cOw\n8wIDAQAB\n-----END PUBLIC KEY-----\n"
+    }
+   }
+  },
+  "readme": "",
+  "steps": [
+   {
+    "_type": "step",
+    "expected_command": [
+     "dget",
+     "http://cdn.debian.net/debian/pool/main/g/grep/grep_2.12-2.dsc"
+    ],
+    "expected_materials": [
+     [
+      "DISALLOW",
+      "*"
+     ]
+    ],
+    "expected_products": [
+     [
+      "ALLOW",
+      "*"
+     ]
+    ],
+    "name": "fetch",
+    "pubkeys": [
+     "e884d87ca68fc6704de4d0562bca5e1fef0cd35999e0021109f13d943dbe4053"
+    ],
+    "threshold": 1
+   },
+   {
+    "_type": "step",
+    "expected_command": [
+     "dpkg-source",
+     "-x",
+     "grep_2.12-2.dsc"
+    ],
+    "expected_materials": [
+     [
+      "MATCH",
+      "*",
+      "WITH",
+      "PRODUCTS",
+      "FROM",
+      "fetch"
+     ]
+    ],
+    "expected_products": [
+     [
+      "ALLOW",
+      "*"
+     ]
+    ],
+    "name": "extract",
+    "pubkeys": [
+     "e884d87ca68fc6704de4d0562bca5e1fef0cd35999e0021109f13d943dbe4053"
+    ],
+    "threshold": 1
+   },
+   {
+    "_type": "step",
+    "expected_command": [],
+    "expected_materials": [
+     [
+      "MATCH",
+      "*",
+      "WITH",
+      "PRODUCTS",
+      "FROM",
+      "extract"
+     ]
+    ],
+    "expected_products": [
+     [
+      "ALLOW",
+      "*"
+     ]
+    ],
+    "name": "modify",
+    "pubkeys": [
+     "e884d87ca68fc6704de4d0562bca5e1fef0cd35999e0021109f13d943dbe4053"
+    ],
+    "threshold": 1
+   },
+   {
+    "_type": "step",
+    "expected_command": [
+     "dpkg-buildpackage",
+     "-us",
+     "-uc"
+    ],
+    "expected_materials": [
+     [
+      "MATCH",
+      "*",
+      "WITH",
+      "PRODUCTS",
+      "FROM",
+      "modify"
+     ]
+    ],
+    "expected_products": [
+     [
+      "ALLOW",
+      "*"
+     ]
+    ],
+    "name": "build",
+    "pubkeys": [
+     "e884d87ca68fc6704de4d0562bca5e1fef0cd35999e0021109f13d943dbe4053"
+    ],
+    "threshold": 1
+   }
+  ]
+ }
+}

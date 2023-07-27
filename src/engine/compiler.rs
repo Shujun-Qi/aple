@@ -6,10 +6,11 @@ use serde_json::{Result, Value, from_value};
 use std::fs;
 use std::hash::{Hash, Hasher};
 use std::collections::hash_map::DefaultHasher;
+use indexmap::IndexMap;
 // use regex::Regex;
 
-use crate::{types::*, sym_naming::NamedUniverse, sym_naming::Types};
-
+use crate::{types::*, parser::NamedUniverse, parser::Types};
+use crate::parser::{Parser, Printer};
 
 #[derive(Debug, Default)]
 struct Rules{
@@ -24,23 +25,14 @@ struct Rules{
 #[test]
 fn test_compiler(){
     let mut nu = NamedUniverse::new();
-    build_facts_library("test/DemoData/Intoto/","Intoto", &mut nu);
+    build_facts_library("test/DemoData/Intoto/debian","Intoto", &mut nu);
     nu.print_names();
     nu.print_rules();
-    query_test(&mut nu);
+    // query_test(&mut nu);
     // println!("The whole universe is {:?}.", nu.name_index());
 }
 
-fn recursive_write(speaker: &str, id:&str,map: HashMap<String,Value>, file_path: &str, rules:&Vec<Rules>, flag:bool, nu: & mut NamedUniverse) -> Result<()>{
-    
-    // let file_path = "Example_Output/".to_owned()+sourcetype+"/"+sourcetype+".pl";
-    // let mut output_file = fs::OpenOptions::new()
-    //     .write(true)
-    //     .append(true)
-    //     .open(file_path)
-    //     .unwrap();
-
-    // let mut output_string: String = "".to_string().to_owned();
+fn recursive_write(speaker: &str, id:&str,map: IndexMap<String,Value>, rules:&Vec<Rules>, flag:bool, nu: & mut NamedUniverse) -> Result<()>{
     
     let mut output = vec![nu.symbol(&Types::String(id.to_string()))];
 
@@ -57,15 +49,15 @@ fn recursive_write(speaker: &str, id:&str,map: HashMap<String,Value>, file_path:
             if flag{
                 // output_string  = output_string+&key+",";
                 output.push(nu.symbol(&Types::String(key.clone())));
-                let newmap: HashMap<String, Value> = from_value(value.clone())?;
-                let _ = recursive_write(&key, &key, newmap, file_path, rules, false, nu);
+                let newmap: IndexMap<String, Value> = from_value(value.clone())?;
+                let _ = recursive_write(&key, &key, newmap, rules, false, nu);
             }
             else{
                 let hash: String = my_hash(value.to_string()).to_string();
                 // output_string = output_string+&hash+",";
                 output.push(nu.symbol(&Types::String(hash.clone())));
-                let newmap: HashMap<String, Value> = from_value(value.clone())?;
-                let _ = recursive_write(&key, &hash, newmap, file_path, rules, false, nu);
+                let newmap: IndexMap<String, Value> = from_value(value.clone())?;
+                let _ = recursive_write(&key, &hash, newmap, rules, false, nu);
             }
             
             
@@ -83,17 +75,17 @@ fn recursive_write(speaker: &str, id:&str,map: HashMap<String,Value>, file_path:
                     // output_string = output_string+&hash+",";
                     let hash: String = my_hash(item.to_string()).to_string();
                     sub_array.push(Types::String(hash.clone()));
-                    let newmap: HashMap<String, Value> = from_value(item)?;
-                    let _ = recursive_write(&key, &hash, newmap, file_path, rules, false, nu);
+                    let newmap: IndexMap<String, Value> = from_value(item)?;
+                    let _ = recursive_write(&key, &hash, newmap, rules, false, nu);
                     // obj = true;
                 }
-                else if item.is_number(){
-                    // output_string = output_string+"[";
-                    // println!("{:?}", item);
-                    // output_string = output_string+&item.to_string()+",";
-                    let num = item.as_i64().unwrap();
-                    sub_array.push(Types::Number(num));
-                }
+                // else if item.is_number(){
+                //     // output_string = output_string+"[";
+                //     // println!("{:?}", item);
+                //     // output_string = output_string+&item.to_string()+",";
+                //     let num = item.as_i64().unwrap();
+                //     sub_array.push(Types::Number(num));
+                // }
                 else{
                     let sub_str = item.to_string();
                     sub_array.push(Types::String(sub_str));
@@ -105,11 +97,11 @@ fn recursive_write(speaker: &str, id:&str,map: HashMap<String,Value>, file_path:
             // }   
             output.push(nu.symbol(&Types::Array(sub_array)));
         }
-        else if value.is_number() {
-            // output_string = output_string+&value.to_string()+",";
-            let num = value.as_i64().unwrap();
-            output.push(nu.symbol(&Types::Number(num)));
-        }
+        // else if value.is_number() {
+        //     // output_string = output_string+&value.to_string()+",";
+        //     let num = value.as_i64().unwrap();
+        //     output.push(nu.symbol(&Types::Number(num)));
+        // }
         else{
             let str = value.to_string().replace("\"", "");
             // println!("{:?}", str);
@@ -141,16 +133,7 @@ where
 }
 
 fn parse_files(filename:&str, sourcetype: &str, types:&Vec<Rules>, nu: &mut NamedUniverse) -> Result<()>{
-    let file_path = "test/Example_Output/".to_owned()+sourcetype+"/"+sourcetype+".pl";
-    let output_name = file_path.clone();
-    let mut output_file = fs::OpenOptions::new()
-        .write(true)
-        .append(true)
-        .open(file_path)
-        .unwrap();
-    if let Err(e) = writeln!(output_file, "\n#Facts from {}.", filename) {
-        eprintln!("Couldn't write to file: {}", e);
-    }
+
     // println!{"\n#Facts from {}.", filename};
 
     let contents = fs::read_to_string(filename)
@@ -160,8 +143,9 @@ fn parse_files(filename:&str, sourcetype: &str, types:&Vec<Rules>, nu: &mut Name
     let speaker: String = my_hash(intoto_root.to_string()).to_string();
     
     if intoto_root.is_object(){
-        let map: HashMap<String, Value> = from_value(intoto_root)?;
-        let _ = recursive_write("root", &speaker, map, &output_name, types, false, nu);
+        let map: IndexMap<String, Value> = from_value(intoto_root)?;
+        // println!("{:?}", map);
+        let _ = recursive_write("root", &speaker, map, types, false, nu);
     }
     else{
 
@@ -191,23 +175,10 @@ fn parse_rules(rule_file:&str) -> Vec<Rules>{
 
 pub fn build_facts_library(dirname:&str, sourcetype: &str, nu: &mut NamedUniverse){
     
-    // let re: Regex = Regex::new(r"\((.+)\)").unwrap();
-    
     let rule_file = "test/Rules/".to_owned()+sourcetype+".schema";
     let rules = parse_rules(&rule_file);
     // println!("{:?}", rules);
     let paths = fs::read_dir(dirname).unwrap();
-    let file_path = "test/Example_Output/".to_owned()+sourcetype+"/"+sourcetype+".pl";
-    let file_name = file_path.clone();
-    if let Err(_) = fs::remove_file(file_name){
-        println!("No file to remove");
-    }
-    let mut output_file = fs::OpenOptions::new()
-        .create_new(true)
-        .write(true)
-        .append(true)
-        .open(file_path)
-        .unwrap();
 
     // let policy_file = "Policy/".to_owned()+sourcetype+".pl";
     // if let Err(e) = writeln!(output_file, ":-consult({}).", policy_file) {

@@ -2,6 +2,7 @@
 #[cfg(test)]
 mod test;
 mod compiler;
+mod signature;
 
 use crate::{
     types::{self, Query, Sym, Principal},
@@ -287,6 +288,7 @@ impl SolutionState {
             }
         }
     }
+    
     fn unify_rule<'a>(
         &mut self,
         goal_term: term_library::TermId,

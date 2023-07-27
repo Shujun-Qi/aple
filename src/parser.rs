@@ -1,9 +1,16 @@
+mod lexer;
+mod parser;
+mod printer;
+
 use std::collections::HashMap;
 use crate::{
-    types::{Sym, Term},
+    types::{Sym, Term, Query},
     engine::{self, SolutionIter},
     universe::Universe,
 };
+
+pub use parser::{ParseError, ParseErrorKind};
+pub use self::{parser::Parser, printer::Printer};
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Types{
@@ -11,6 +18,12 @@ pub enum Types{
     Number(i64),
     Array(Vec<Types>),
     None
+}
+#[derive(Debug)]
+pub enum Status{
+    Fetch,
+    Fail,
+    Success
 }
 
 impl From<std::string::String> for Types {
@@ -102,9 +115,67 @@ impl NamedUniverse {
             println!("Sym: {:?}, Value: {:?}", sym, value);
         }
     }
+
+    // pub fn query(&self, query: &Query, domain: &str) -> Result<SolutionIter, Status>{
+        
+
+    // }
+
 }
 
 impl Default for NamedUniverse {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+
+pub struct TextualUniverse {
+    universe: NamedUniverse,
+}
+
+impl TextualUniverse {
+    pub fn new() -> Self {
+        Self {
+            universe: NamedUniverse::new(),
+        }
+    }
+
+    pub fn load_str(&mut self, rules: &str) -> Result<(), ParseError> {
+        let rules = Parser::new(&mut self.universe).parse_rules_str(rules)?;
+        for rule in rules {
+            self.universe.inner_mut().add_rule(rule);
+        }
+        Ok(())
+    }
+
+    pub fn prepare_query(&mut self, query: &str) -> Result<Query, ParseError> {
+        Parser::new(&mut self.universe).parse_query_str(query)
+    }
+
+    pub fn query_dfs(&mut self, query: &str) -> Result<SolutionIter, ParseError> {
+        let query = self.prepare_query(query)?;
+        Ok(engine::query_dfs(self.universe.inner(), &query))
+    }
+
+    pub fn printer(&self) -> Printer {
+        Printer::new(&self.universe)
+    }
+
+    pub fn parse(&mut self) -> Parser {
+        Parser::new(&mut self.universe)
+    }
+
+    pub fn inner_mut(&mut self) -> &mut Universe {
+        self.universe.inner_mut()
+    }
+
+    pub fn inner(&self) -> &Universe {
+        self.universe.inner()
+    }
+}
+
+impl Default for TextualUniverse {
     fn default() -> Self {
         Self::new()
     }

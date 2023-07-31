@@ -2,12 +2,14 @@ mod lexer;
 mod parser;
 mod printer;
 
-use std::collections::HashMap;
+use std::{collections::HashMap, fs::{File, OpenOptions}};
 use crate::{
     types::{Sym, Term, Query},
     engine::{self, SolutionIter},
     universe::Universe,
 };
+
+use std::io::Write;
 
 pub use parser::{ParseError, ParseErrorKind};
 pub use self::{parser::Parser, printer::Printer};
@@ -95,7 +97,7 @@ impl NamedUniverse {
         &self.names
     }
 
-    pub fn print_rules(&self){
+    pub fn write_rules(&self, filename: &str){
         let rules = *&self.inner().rules();
         for rule in rules{
             let main_name = self.symbol_name(rule.main_rule.relation).unwrap();
@@ -106,13 +108,23 @@ impl NamedUniverse {
             }).collect();
             let sub_rule = &rule.sub_rules;
             let sub_name: Vec<&Types> = sub_rule.into_iter().map(|sr| self.symbol_name(sr.relation).unwrap()).collect();
-            println!("relation:{:?}, args: {:?}, sub_rule:{:?}", main_name, arg_name, sub_name);
+            let mut w = OpenOptions::new()
+                .append(true)
+                .create(true)
+                .open(filename)
+                .unwrap();
+            writeln!(&mut w, "relation:{:?}, args: {:?}, sub_rule:{:?}", main_name, arg_name, sub_name).unwrap();
         }
     }
 
-    pub fn print_names(&self){
+    pub fn write_names(&self, filename: &str){
         for (sym, value) in self.syms.clone().into_iter(){
-            println!("Sym: {:?}, Value: {:?}", sym, value);
+            let mut w = OpenOptions::new()
+                .append(true)
+                .create(true)
+                .open(filename)
+                .unwrap();
+            writeln!(&mut w, "Sym: {:?}, Value: {:?}", sym, value).unwrap();
         }
     }
 

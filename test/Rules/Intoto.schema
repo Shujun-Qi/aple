@@ -1,6 +1,16 @@
-keys$:key_info.
-products$.
-materials$.
-signatures:signatures.
+signatures:RESAMPLE;
+signed:HASH;
+keys:RESAMPLE;
+keyval:RESAMPLE;
+steps:RENAME:name;
+name:FETCH:SURFIX:.link;
+expected_materials:RULE;
+expected_products:RULE;
+byproducts:RESAMPLE;
+materials:RESAMPLE;
+products:RESAMPLE;
+environment:RESAMPLE;
+
+
 
 

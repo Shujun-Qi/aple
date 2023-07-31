@@ -1,7 +1,7 @@
 
 #[cfg(test)]
 mod test;
-mod compiler;
+// mod compiler;
 mod signature;
 
 use crate::{

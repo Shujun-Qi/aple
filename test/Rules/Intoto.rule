@@ -1,21 +1,39 @@
 #Intoto validation 5.2.1
-validate_root(layout):-
-    root($keyid, $pub_key),
-    signs(layout, $pub_key, $sig),
-    sig($keyid, $method, $sig).
+validate_root("root.layout"):-
+    sign($keyid, "root.layout", &pub_key, &sig),
+    sig("root.layout", $keyid, $method, $sig).
 
+#Intoto validation 5.2.2
+validate_expiration($file):-
+    expires($root, $time),
+    geq($now, $time).
+
+#Intoto validation 5.2.3
 validate_link($file):-
-    validate_key($keyid, $public),
-    signs($file, $public, $sig),
-    sig($keyid, $method, $sig).
+    validate_key($keyid, $pub_key),
+    signs($keyid, $file, $pub_key, $sig),
+    sig($file, $keyid, $method, $sig).
 
-validate_key($keyid, $public):-
-    validate_root(layout),
-    keys(layout, $keyid),
-    key_info($keyid, $keytype, $private, $public).
+validate_key($keyid, $pub_key):-
+    validate_root("root.layout"),
+    keys("root.layout", $keyid, $type, $pub_key).
 
 validate_threshold($file):-
-    threshold(layout, $step, $threshold),
+    threshold("root.layout", $step, $threshold),
     count(validate_link($file), $len),
     geq($len, $threshold).
 
+#Intoto validation 5.2.4 is done in the compiler
+
+#Intoto validation 5.2.5
+validate_materials("extract.link"):-
+    products("fetch.link", $mlists),
+    materials("extract.link", $mlists).
+
+validate_materials("modify.link"):-
+    products("extract.link", $mlists),
+    materials("modify.link", $mlists).
+
+validate_materials("build.link"):-
+    products("modify.link", $mlists),
+    materials("build.link", $mlist).

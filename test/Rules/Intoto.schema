@@ -1,14 +1,15 @@
 signatures:RESAMPLE;
 signed:HASH;
-keys:RESAMPLE;
+keys:DIRECT;
 keyval:RESAMPLE;
 steps:RENAME:name;
 name:FETCH:SURFIX:.link;
+expires:TIME;
 expected_materials:RULE;
 expected_products:RULE;
 byproducts:RESAMPLE;
-materials:RESAMPLE;
-products:RESAMPLE;
+materials:DIRECT;
+products:DIRECT;
 environment:RESAMPLE;
 
 

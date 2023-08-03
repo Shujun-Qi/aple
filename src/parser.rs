@@ -185,6 +185,10 @@ impl TextualUniverse {
     pub fn inner(&self) -> &Universe {
         self.universe.inner()
     }
+
+    pub fn universe(& mut self) -> & mut NamedUniverse{
+        & mut self.universe
+    }
 }
 
 impl Default for TextualUniverse {

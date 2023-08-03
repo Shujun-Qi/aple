@@ -2,7 +2,7 @@ use std::iter::Peekable;
 
 use logos::{Logos, Span, SpannedIter};
 
-use crate::types::{Predicate, Query, Rule, Sym, Term, Principal};
+use crate::types::{Predicate, Query, Rule, Sym, Term, Principal, self};
 
 use super::{lexer::Token, NamedUniverse};
 
@@ -118,6 +118,7 @@ impl<'a> Parser<'a> {
     // //////////////////////////////// PARSER INTERNALS ////////////////////////////////
 
     fn parse_rule(&mut self, tokens: &mut TokenStream) -> Result<Rule, ParseError> {
+        // println!("{}", tokens);
         let main_rule = self.parse_pred(tokens)?;
         let sub_rules = match tokens.peek_token() {
             Some(Token::ImpliedBy) => {
@@ -176,6 +177,7 @@ impl<'a> Parser<'a> {
             if actual == expected {
                 Ok(span)
             } else {
+                println!("triggered");
                 Err(ParseError::new(span, ParseErrorKind::UnexpectedToken))
             }
         } else {
@@ -184,6 +186,7 @@ impl<'a> Parser<'a> {
     }
 
     fn parse_pred(&mut self, tokens: &mut TokenStream) -> Result<Predicate, ParseError> {
+        // println!("{:?}", tokens.source);
         let relation = self.parse_symbol(tokens)?;
         let mut args = vec![];
         if let Some(Token::LParen) = tokens.peek_token() {
@@ -213,9 +216,10 @@ impl<'a> Parser<'a> {
 
     fn parse_term(&mut self, tokens: &mut TokenStream) -> Result<Term, ParseError> {
         match tokens.peek_token() {
-            Some(Token::Variable(index)) => {
+            Some(Token::Variable(str)) => {
                 tokens.advance();
-                Ok(Term::Principal(Principal::from_ord(index)))
+                let sym = self.universe.symbol(&Types::String(str));
+                Ok(Term::Principal(Principal::from_ord(sym.ord())))
             }
             _ => self.parse_pred(tokens).map(Term::Pred),
         }

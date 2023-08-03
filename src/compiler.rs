@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use std::io::prelude::*;
 use std::os::unix::prelude::PermissionsExt;
 // use std::process::exit;
-use serde_json::{Result, Value, from_value};
+use serde_json::{Result, Value, from_value, from_str};
 use std::fs;
 use std::hash::{Hash, Hasher};
 use std::collections::hash_map::DefaultHasher;
@@ -19,8 +19,9 @@ use std::str;
 use chrono::prelude::*;
 
 
+use crate::engine::SolutionIter;
 use crate::{types::*, parser::NamedUniverse, parser::Types};
-use crate::parser::{Parser, Printer};
+use crate::parser::{Parser, Printer, TextualUniverse};
 
 
 #[cfg(test)]
@@ -35,7 +36,7 @@ struct Schema{
     pedding: String
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 struct File{
     filename: String,
     mt: MetadataType,
@@ -59,42 +60,115 @@ pub enum FetchTypes{
 pub enum SchemaTypes{
     RESAMPLE,
     HASH,
-    Custom,
+    DIRECT,
     RENAME,
     FETCH,
+    TIME,
     RULE,
     NONE
 }
 
+#[derive(Debug, Default)]
+pub struct QueryResult{
+    results: Vec<String>,
+    state: bool
+}
 
+impl QueryResult {
+    pub fn new() -> Self{
+        Self { results: vec![], state: false }
+    }
+}
 
 #[derive(Default)]
 pub struct Compiler{
-    nu: NamedUniverse,
+    tu: TextualUniverse,
     file_map: HashMap<String, File>
 }
 
 impl Compiler{
     pub fn new() -> Self{
         Self{
-            nu : NamedUniverse::new(),
+            tu : TextualUniverse::new(),
             file_map : HashMap::default()
         }
     }
 
     pub fn compile(& mut self, dirname: &str, mt: MetadataType){
-        // self.get_schema(&mt);
-        self.handle_root(dirname, &mt);
+        let root_filename = match mt{
+            MetadataType::INTOTO => "root.layout",
+            MetadataType::TUF => "root.json"
+        };
+        let rule_filename = match mt{
+            MetadataType::INTOTO => "test/Rules/Intoto_test.rule",
+            MetadataType::TUF => "test/Rules/Tuf_test.rule"
+        };
+        let file_s = File{
+            filename: root_filename.to_string(),
+            mt: mt.clone(), 
+            dirname: dirname.to_string()
+        };
+        let map = self.get_schema(&mt);
+        self.file_map.insert(root_filename.to_string(), file_s.clone());
+        let rules = fs::read_to_string(rule_filename)
+        .expect("Something went wrong reading the file");
+        self.tu.load_str(&rules).expect("load rule string");
+        let _ = self.fetch_external("root", &file_s, &map);
+    }
+
+    pub fn query(& mut self, q: &str) -> QueryResult{
+        
+        let query = self.tu.prepare_query(q).expect("translate query");
+        let mut solutions = query_dfs(self.tu.inner(), &query);
+        let mut result = QueryResult::new();
+        loop {
+            println!("{:?}", solutions);
+            match solutions.step() {
+                engine::Step::Yield => {
+                    let solution = solutions.get_solution();
+                    result.state = true;
+                    for (index, var) in solution.into_iter().enumerate() {
+                        if let Some(term) = var {
+                            result.results.push(self.tu.printer().term_to_string(&term));
+                        } 
+                    }
+                }
+                engine::Step::Continue => continue,
+                engine::Step::Done => {
+                    break;
+                }
+            }
+        }
+        result
     }
 
     pub fn print_files(& self){
         println!("{:?}", self.file_map);
     }
 
-    pub fn print_nu(& self){
-        let wu = std::fs::File::create("test/Example_Output/Intoto.log").unwrap();
-        self.nu.write_names("test/Example_Output/Intoto.log");
-        self.nu.write_rules("test/Example_Output/Intoto.log");
+    pub fn print_nu(& mut self, filename: &str){
+        fs::remove_file(filename).expect("remove file");
+        self.tu.universe().write_names(filename);
+        self.tu.universe().write_rules(filename);
+    }
+
+    pub fn initial(& mut self){
+        self.tu.universe().symbol(&Types::String("+".to_string()));
+        self.tu.universe().symbol(&Types::String("-".to_string()));
+        self.tu.universe().symbol(&Types::String("eq".to_string()));
+        self.tu.universe().symbol(&Types::String("lgt".to_string()));
+        self.tu.universe().symbol(&Types::String("lst".to_string()));
+        self.tu.universe().symbol(&Types::String("geq".to_string()));
+        self.tu.universe().symbol(&Types::String("leq".to_string()));
+        //test
+        let rule_n = self.tu.universe().symbol(&Types::String("lst".to_string()));
+        let num1 = self.tu.universe().symbol(&Types::Number(1));
+        let num2 = self.tu.universe().symbol(&Types::Number(2));
+        let args = vec![Term::Pred(num1.into()), Term::Pred(num2.into())];
+        // let rule = Rule::fact(rule_n, args);
+        let query = Query::new(rule_n, args);
+        self.query("small(1,2).");
+
     }
 
     fn get_schema(& mut self, mt: &MetadataType) -> HashMap<String, Schema>{
@@ -148,8 +222,14 @@ impl Compiler{
                     fetch_type: FetchTypes::NONE,
                     pedding: "".to_string()
                 },
-                "CUSTOM" => Schema { 
-                    schema_type: SchemaTypes::Custom, 
+                "DIRECT" => Schema { 
+                    schema_type: SchemaTypes::DIRECT, 
+                    field: "".to_string(), 
+                    fetch_type: FetchTypes::NONE, 
+                    pedding: "".to_string() 
+                },
+                "TIME" => Schema { 
+                    schema_type: SchemaTypes::TIME, 
                     field: "".to_string(), 
                     fetch_type: FetchTypes::NONE, 
                     pedding: "".to_string() 
@@ -166,33 +246,17 @@ impl Compiler{
         return map;
     }
 
-    fn handle_root(& mut self, dirname: &str, mt: &MetadataType){
-        let root_filename = match mt{
-            MetadataType::INTOTO => "root.layout",
-            MetadataType::TUF => "root.json"
-        };
-        // let root_key = "0d6d097a467ebebdf03bed8e545312409afc9e17529ab4f10f97935d755d9059";
-        // let key_vec = vec![root_key];
-        // let meta = *mt.clone();
-        let file_s = File{
-            filename: root_filename.to_string(),
-            mt: mt.clone(), 
-            dirname: dirname.to_string()
-        };
-        let map = self.get_schema(mt);
-        self.file_map.insert(root_filename.to_string(), file_s);
-        let _ = self.fetch_external( dirname, &root_filename, mt, &map);
-    }
-
-    fn fetch_external(& mut self, dirname: &str,filename: &str, mt:& MetadataType, schema_map:& HashMap<String, Schema>) -> Result<()>{
+    fn fetch_external(& mut self, speaker: &str , file: &File, schema_map:& HashMap<String, Schema>) -> Result<()>{
         
         // println!("{}", filename);
-        let rfname = dirname.to_string()+filename;
+        let dirname = &file.dirname;
+        let filename = &file.filename;
+        let rfname = dirname.to_string()+ filename;
         let contents = fs::read_to_string(rfname)
         .expect("Something went wrong reading the file");
 
         let values: Value = serde_json::from_str(&contents)?;
-        match mt{
+        match file.mt{
             MetadataType::INTOTO => {
                 let chunk = values["signed"].to_string();
                 let sigs = values["signatures"].as_array().unwrap();
@@ -202,10 +266,25 @@ impl Compiler{
                     let signature = sig["sig"].to_string().replace("\"", "");
                     map.insert(keyid, signature);
                 }
+                let mut count = 0;
                 for (keyid, sig) in map{
                     // let sig = map.get(keyid).unwrap();
-                    let key_file = "test/keys/".to_owned()+&keyid+".pem";
-                    let pub_key = fs::read_to_string(key_file).unwrap();
+                    let pub_key: String = match speaker{
+                        "root" => {
+                            let key_file = "test/keys/".to_owned()+&keyid+".pem";
+                            fs::read_to_string(key_file).unwrap()
+                        }
+                        _ => {
+                            let q_str= format!("validate_key({}, $pubkey).", keyid);
+                            let result = self.query(&q_str);
+                            if !result.state{
+                                continue;
+                            }
+                            let rk = result.results[0].clone().replace("\\n", "\r\n");
+                            rk
+                        }
+                    };
+                    // println!("{}", pub_key);
                     let public_key = RsaPublicKey::from_public_key_pem(pub_key.as_str()).unwrap();
                     let verifying_key: VerifyingKey<Sha256> = VerifyingKey::from(public_key);
 
@@ -215,20 +294,27 @@ impl Compiler{
                     let result = verifying_key.verify(data_bytes, &signature);
                     match result{
                         Ok(()) => {
-                            let rs = self.nu.symbol(&Types::String("sign".to_string()));
-                            let kid = Term::Pred(self.nu.symbol(&Types::String(keyid.to_string())).into());
-                            let file = Term::Pred(self.nu.symbol(&Types::String(filename.to_string())).into());
-                            let sig = Term::Pred(self.nu.symbol(&Types::String(sig.clone())).into());
-                            let args = vec![kid, file, sig];
+                            let rs = self.tu.universe().symbol(&Types::String("sign".to_string()));
+                            let kid = Term::Pred(self.tu.universe().symbol(&Types::String(keyid.to_string())).into());
+                            let file = Term::Pred(self.tu.universe().symbol(&Types::String(speaker.to_string())).into());
+                            let pubk = Term::Pred(self.tu.universe().symbol(&Types::String(pub_key.replace("\r\n", "\\n"))).into());
+                            let sig = Term::Pred(self.tu.universe().symbol(&Types::String(sig.clone())).into());
+                            let args = vec![kid, file, pubk, sig];
                             let rule = Rule::fact(rs, args);
-                            // println!("rule:{:?}", rule);
-                            self.nu.inner_mut().add_rule(rule);
+                            self.tu.universe().inner_mut().add_rule(rule);
+                            count += 1;
                         }
-                        Err(error) => println!("no")
+                        Err(_) => println!("no")
                     }
                 }
+                let rule_n = self.tu.universe().symbol(&Types::String("verified".to_string()));
+                let sp = Term::Pred(self.tu.universe().symbol(&Types::String(speaker.to_string())).into());
+                let cn = Term::Pred(self.tu.universe().symbol(&Types::Number(count)).into());
+                let args = vec![sp, cn];
+                let rule = Rule::fact(rule_n, args);
+                self.tu.universe().inner_mut().add_rule(rule);
                 let map: IndexMap<String, Value> = from_value(values).expect("fail to translate json to maps");
-                self.parse_files_recursive(dirname, filename, &map, schema_map, mt);
+                self.parse_files_recursive(file, speaker, &map, schema_map);
             },
             MetadataType::TUF => {}
         }
@@ -237,7 +323,7 @@ impl Compiler{
 
     
 
-    fn handle_object(& mut self,dirname: &str, speaker: &str,key: &String, value: &Value, schema_map:& HashMap<String, Schema>, mt: &MetadataType){
+    fn handle_object(& mut self,file: &File, speaker: &str, key: &String, value: &Value, schema_map:& HashMap<String, Schema>){
         let imap: IndexMap<String, Value> = from_value(value.clone()).expect("cannot translate to map");
         // println!("{:?}", schema_map);
         if schema_map.contains_key(key){
@@ -245,76 +331,73 @@ impl Compiler{
             // println!(" key: {}, vvec:{:?}", speaker, key, value);
             match &sc.schema_type {
                 SchemaTypes::RESAMPLE => {
-                    // println!("{:?}",value);
-                    let mut vvec = imap.values().cloned().collect::<Vec<Value>>();
-
-
-                    self.handle_array(dirname, speaker, key, &vvec, schema_map, mt);
+                    let vvec = imap.values().cloned().collect::<Vec<Value>>();
+                    self.handle_array(file, speaker, key, &vvec, schema_map);
                 }
                 SchemaTypes::HASH => {
-                    self.parse_files_recursive(dirname, speaker, &imap, schema_map, mt)
+                    self.parse_files_recursive(file, speaker, &imap, schema_map)
                 }
                 SchemaTypes::RENAME => {
                     let name = &sc.field;
                     let nv = imap.get(name).expect("get value").to_string().replace("\"", "");
-                    self.parse_files_recursive(dirname, &nv, &imap, schema_map, mt)
+                    self.parse_files_recursive(file, &nv, &imap, schema_map)
                 }
-                SchemaTypes::Custom => {
-                    
-                    // let keys = imap.keys().cloned().collect::<Vec<String>>();
-                    // if keys.len()>0{
-                    //     let skey = &keys[0];
-                    //     vvec.insert(0, Value::from(skey.to_string()));
-                    // }    
-                }
-                SchemaTypes::FETCH => {
-
+                SchemaTypes::DIRECT => {
+                    for (k, v) in imap{
+                        let mut output = vec![self.tu.universe().symbol(&Types::String(speaker.to_string()))];
+                        output.push(self.tu.universe().symbol(&Types::String(k.clone())));
+                        let map: IndexMap<String, Value> = from_value(v.clone()).expect("cannot translate to map");
+                        let args = output.into_iter().map(|s| Term::Pred(s.into())).collect();
+                        let rs = self.tu.universe().symbol(&Types::String(key.to_string()));
+                        let rule = Rule::fact(rs, args);
+                        self.tu.inner_mut().add_rule(rule);
+                        self.parse_files_recursive(file, &k, &map, schema_map)
+                    }
                 }
                 SchemaTypes::RULE => {
 
                 }
-                SchemaTypes::NONE => {}
+                _ => {}
             }
         }
     }
 
-    fn handle_array(& mut self,dirname: &str, speaker: &str, key: &String, vvec: &Vec<Value>, schema_map:& HashMap<String, Schema>, mt: &MetadataType){
-        let mut output = vec![self.nu.symbol(&Types::String(speaker.to_string()))];
-        // println!("speaker: {}, key: {}, vvec:{:?}", speaker, key, vvec);
+    fn handle_array(& mut self,file: &File, speaker: &str, key: &String, vvec: &Vec<Value>, schema_map:& HashMap<String, Schema>){  
+        let mut output = vec![self.tu.universe().symbol(&Types::String(speaker.to_string()))];
         for value in vvec{
             if value.is_object(){
                 // println!("speaker: {}, key: {}", speaker, key);
-                self.handle_object(dirname, speaker, key, value, schema_map, mt)
+                self.handle_object(file, speaker, key, &value, schema_map);
             }
             else if value.is_array(){
                 let value_vec = value.as_array().unwrap();
                 // println!("{:?}", value_vec);
-                self.handle_array(dirname, speaker, key, value_vec, schema_map, mt)
+                self.handle_array(file, speaker, key, value_vec, schema_map);
             }
             else if value.is_number(){
                 let num = value.as_i64().unwrap();
-                output.push(self.nu.symbol(&Types::Number(num)));
+                output.push(self.tu.universe().symbol(&Types::Number(num)));
             }else{
                 let str = value.to_string().replace("\"", "");
-                output.push(self.nu.symbol(&Types::String(str)));
+                output.push(self.tu.universe().symbol(&Types::String(str)));
             }
         }
         if vvec.len() == 0{
-            output.push(self.nu.symbol(&Types::String("".to_string())));
+            output.push(self.tu.universe().symbol(&Types::String("".to_string())));
         }
         if output.len() > 1{
             let args = output.into_iter().map(|s| Term::Pred(s.into())).collect();
-            let rs = self.nu.symbol(&Types::String(key.to_string()));
+            let rs = self.tu.universe().symbol(&Types::String(key.to_string()));
             let rule = Rule::fact(rs, args);
-            self.nu.inner_mut().add_rule(rule);
+            self.tu.inner_mut().add_rule(rule);
         }
     }
 
-    fn parse_files_recursive(& mut self,dirname: &str, speaker: &str, map: & IndexMap<String, Value>, schema_map:& HashMap<String, Schema>, mt: &MetadataType){
-        let sp = self.nu.symbol(&Types::String(speaker.to_string()));
+    fn parse_files_recursive(& mut self, file: &File, speaker: &str, map: & IndexMap<String, Value>, schema_map:& HashMap<String, Schema>){
+        let sp = self.tu.universe().symbol(&Types::String(speaker.to_string()));
         for (key, value) in map{
             if value.is_object(){
-                self.handle_object(dirname, speaker, key, value, schema_map, mt);
+                self.handle_object(file, speaker, key, value, schema_map);
             }
             else if value.is_array(){
                 if schema_map.contains_key(key){
@@ -325,15 +408,15 @@ impl Compiler{
                     }
                 }
                 let vvec = value.as_array().unwrap();
-                self.handle_array(dirname, speaker, key, vvec, schema_map, mt);
+                self.handle_array(file, speaker, key, vvec, schema_map);
             }
             else if value.is_number(){
                 let num = value.as_i64().unwrap();
-                let ns = self.nu.symbol(&Types::Number(num));
+                let ns = self.tu.universe().symbol(&Types::Number(num));
                 let args =vec![Term::Pred(sp.into()), Term::Pred(ns.into())];
-                let rs = self.nu.symbol(&Types::String(key.to_string()));
+                let rs = self.tu.universe().symbol(&Types::String(key.to_string()));
                 let rule = Rule::fact(rs, args);
-                self.nu.inner_mut().add_rule(rule);
+                self.tu.inner_mut().add_rule(rule);
             }else{
                 let str = value.to_string().replace("\"", "");
                 if schema_map.contains_key(key){
@@ -349,25 +432,41 @@ impl Compiler{
                                 FetchTypes::NONE => "".to_string(),
                             };
                             if !self.file_map.contains_key(&fname){
+                                let temp_mt = file.mt.clone();
                                 let file_s = File{
                                     filename: fname.to_string(),
-                                    mt: mt.clone(), 
-                                    dirname: dirname.to_string()
+                                    mt: temp_mt, 
+                                    dirname: file.dirname.to_string()
                                 };
-                                self.file_map.insert(fname.to_string(), file_s);
-                                let _ = self.fetch_external(dirname, &fname, mt, schema_map);
+                                self.file_map.insert(fname.to_string(), file_s.clone());
+                                let _ = self.fetch_external(&str, &file_s, schema_map);
                                 continue;
                             }
-                            
+                            let ss = self.tu.universe().symbol(&Types::String(str));
+                            let args =vec![Term::Pred(sp.into()), Term::Pred(ss.into())];
+                            let rs = self.tu.universe().symbol(&Types::String(key.to_string()));
+                            let rule = Rule::fact(rs, args);
+                            self.tu.inner_mut().add_rule(rule);
+                        }
+                        SchemaTypes::TIME => {
+                            let bn = DateTime::parse_from_rfc3339(&str).unwrap();
+                            let utc = DateTime::<Local>::from(bn).timestamp();
+                            let ss = self.tu.universe().symbol(&Types::Number(utc));
+                            let args =vec![Term::Pred(sp.into()), Term::Pred(ss.into())];
+                            let rs = self.tu.universe().symbol(&Types::String(key.to_string()));
+                            let rule = Rule::fact(rs, args);
+                            self.tu.inner_mut().add_rule(rule);
                         }
                         _ => {}
                     }
                 }
-                let ss = self.nu.symbol(&Types::String(str));
-                let args =vec![Term::Pred(sp.into()), Term::Pred(ss.into())];
-                let rs = self.nu.symbol(&Types::String(key.to_string()));
-                let rule = Rule::fact(rs, args);
-                self.nu.inner_mut().add_rule(rule);
+                else{
+                    let ss = self.tu.universe().symbol(&Types::String(str));
+                    let args =vec![Term::Pred(sp.into()), Term::Pred(ss.into())];
+                    let rs = self.tu.universe().symbol(&Types::String(key.to_string()));
+                    let rule = Rule::fact(rs, args);
+                    self.tu.inner_mut().add_rule(rule);
+                }
             }
         }
         

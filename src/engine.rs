@@ -28,14 +28,14 @@ pub fn query_dfs<'a>(universe: &'a Universe, query: &Query) -> SolutionIter<'a> 
         solution,
     }
 }
-
+#[derive(Debug)]
 pub struct SolutionIter<'s> {
     rules: &'s CompiledRuleDb,
     unresolved_goals: Vec<term_library::TermId>,
     checkpoints: Vec<Checkpoint>,
     solution: SolutionState,
 }
-
+#[derive(Debug)]
 struct Checkpoint {
     goal: term_library::TermId,
     main_rule: Sym,
@@ -81,6 +81,23 @@ impl<'s> SolutionIter<'s> {
 
     pub fn get_solution(&self) -> Vec<Option<types::Term>> {
         self.solution.get_solution()
+    }
+
+    // pub fn get_checkpoints(&self) -> &Vec<Checkpoint> {
+    //     &self.checkpoints
+    // }
+
+    pub fn solution_state(&self) -> bool{
+        if self.unresolved_goals.len() > 0{
+            false
+        }
+        else{
+            true
+        }
+    }
+
+    pub fn get_unresolved(& self) -> &Vec<term_library::TermId>{
+        &self.unresolved_goals
     }
 
     fn resume_checkpoint(&mut self) -> bool {
@@ -132,6 +149,7 @@ impl<'s> Iterator for SolutionIter<'s> {
     }
 }
 
+#[derive(Debug)]
 struct SolutionState {
     map: Vec<Option<term_library::TermId>>,
     assignments: Vec<Principal>,
@@ -140,6 +158,7 @@ struct SolutionState {
     occurs_stack: Vec<term_library::TermId>,
 }
 
+#[derive(Debug)]
 struct SolutionCheckpoint {
     assign_checkpoint: usize,
     map_checkpoint: usize,

@@ -61,6 +61,7 @@ pub enum SchemaTypes{
     RESAMPLE,
     HASH,
     DIRECT,
+    ASSAMBLE,
     RENAME,
     FETCH,
     TIME,
@@ -122,7 +123,7 @@ impl Compiler{
         let mut solutions = query_dfs(self.tu.inner(), &query);
         let mut result = QueryResult::new();
         loop {
-            println!("{:?}", solutions);
+            // println!("{:?}", solutions);
             match solutions.step() {
                 engine::Step::Yield => {
                     let solution = solutions.get_solution();
@@ -132,9 +133,17 @@ impl Compiler{
                             result.results.push(self.tu.printer().term_to_string(&term));
                         } 
                     }
+                    // break;
                 }
+                engine::Step::Precompiled => {
+                    // println!("Precompiled");
+                    // let checkpoint = solutions.get_checkpoints().last().unwrap();
+                    // solutions.checkpoints.pop();
+                    continue;
+                },
                 engine::Step::Continue => continue,
                 engine::Step::Done => {
+                    // println!("{:?}", solutions);
                     break;
                 }
             }
@@ -161,14 +170,17 @@ impl Compiler{
         self.tu.universe().symbol(&Types::String("geq".to_string()));
         self.tu.universe().symbol(&Types::String("leq".to_string()));
         //test
-        let rule_n = self.tu.universe().symbol(&Types::String("lst".to_string()));
-        let num1 = self.tu.universe().symbol(&Types::Number(1));
-        let num2 = self.tu.universe().symbol(&Types::Number(2));
-        let args = vec![Term::Pred(num1.into()), Term::Pred(num2.into())];
-        // let rule = Rule::fact(rule_n, args);
-        let query = Query::new(rule_n, args);
-        self.query("small(1,2).");
-
+        // let rule_n = self.tu.universe().symbol(&Types::String("lst".to_string()));
+        // let num1 = self.tu.universe().symbol(&Types::Number(1));
+        // let num2 = self.tu.universe().symbol(&Types::Number(2));
+        // let args = vec![Term::Pred(num1.into()), Term::Pred(num2.into())];
+        // let rule_t = self.tu.universe().symbol(&Types::String("test".to_string()));
+        let rule_filename = "test/Rules/test.rule";
+        let rules = fs::read_to_string(rule_filename)
+        .expect("Something went wrong reading the file");
+        self.tu.load_str(&rules).expect("load rule string");
+        let solutions = self.query("test(1,2).");
+        println!("{:?}", solutions);
     }
 
     fn get_schema(& mut self, mt: &MetadataType) -> HashMap<String, Schema>{
@@ -224,6 +236,12 @@ impl Compiler{
                 },
                 "DIRECT" => Schema { 
                     schema_type: SchemaTypes::DIRECT, 
+                    field: "".to_string(), 
+                    fetch_type: FetchTypes::NONE, 
+                    pedding: "".to_string() 
+                },
+                "ASSAMBLE" => Schema { 
+                    schema_type: SchemaTypes::ASSAMBLE, 
                     field: "".to_string(), 
                     fetch_type: FetchTypes::NONE, 
                     pedding: "".to_string() 
@@ -316,7 +334,11 @@ impl Compiler{
                 let map: IndexMap<String, Value> = from_value(values).expect("fail to translate json to maps");
                 self.parse_files_recursive(file, speaker, &map, schema_map);
             },
-            MetadataType::TUF => {}
+            MetadataType::TUF => {
+                let map: IndexMap<String, Value> = from_value(values).expect("fail to translate json to maps");
+                self.parse_files_recursive(file, speaker, &map, schema_map);
+
+            }
         }
         Ok(())
     }
@@ -348,11 +370,28 @@ impl Compiler{
                         output.push(self.tu.universe().symbol(&Types::String(k.clone())));
                         let map: IndexMap<String, Value> = from_value(v.clone()).expect("cannot translate to map");
                         let args = output.into_iter().map(|s| Term::Pred(s.into())).collect();
+                        
                         let rs = self.tu.universe().symbol(&Types::String(key.to_string()));
                         let rule = Rule::fact(rs, args);
                         self.tu.inner_mut().add_rule(rule);
                         self.parse_files_recursive(file, &k, &map, schema_map)
                     }
+                    // let args = vec![Term::Pred(self.tu.universe().symbol(&Types::String(speaker.to_string())).into()), Term::Pred(self.tu.universe().symbol(&Types::Array(testvec)).into())];
+                    // let rs = self.tu.universe().symbol(&Types::String(key.to_string()));
+                    // let rule = Rule::fact(rs, args);
+                    // self.tu.inner_mut().add_rule(rule);
+                }
+                SchemaTypes::ASSAMBLE => {
+                    let mut output = vec![];
+                    for (k, v) in imap{
+                        output.push(Types::String(k.to_string()));
+                        let map: IndexMap<String, Value> = from_value(v.clone()).expect("cannot translate to map");
+                        self.parse_files_recursive(file, &k, &map, schema_map)
+                    }
+                    let args = vec![Term::Pred(self.tu.universe().symbol(&Types::String(speaker.to_string())).into()), Term::Pred(self.tu.universe().symbol(&Types::Array(output)).into())];
+                    let rs = self.tu.universe().symbol(&Types::String(key.to_string()));
+                    let rule = Rule::fact(rs, args);
+                    self.tu.inner_mut().add_rule(rule);
                 }
                 SchemaTypes::RULE => {
 
@@ -364,6 +403,7 @@ impl Compiler{
 
     fn handle_array(& mut self,file: &File, speaker: &str, key: &String, vvec: &Vec<Value>, schema_map:& HashMap<String, Schema>){  
         let mut output = vec![self.tu.universe().symbol(&Types::String(speaker.to_string()))];
+        let mut testvec = vec![];
         for value in vvec{
             if value.is_object(){
                 // println!("speaker: {}, key: {}", speaker, key);
@@ -377,16 +417,20 @@ impl Compiler{
             else if value.is_number(){
                 let num = value.as_i64().unwrap();
                 output.push(self.tu.universe().symbol(&Types::Number(num)));
+                testvec.push(Types::Number(num));
             }else{
                 let str = value.to_string().replace("\"", "");
-                output.push(self.tu.universe().symbol(&Types::String(str)));
+                output.push(self.tu.universe().symbol(&Types::String(str.clone())));
+                testvec.push(Types::String(str));
             }
         }
         if vvec.len() == 0{
             output.push(self.tu.universe().symbol(&Types::String("".to_string())));
+            testvec.push(Types::String("".to_string()));
         }
         if output.len() > 1{
             let args = output.into_iter().map(|s| Term::Pred(s.into())).collect();
+            // let args = vec![Term::Pred(self.tu.universe().symbol(&Types::String(speaker.to_string())).into()),Term::Pred(self.tu.universe().symbol(&Types::Array(testvec)).into())];
             let rs = self.tu.universe().symbol(&Types::String(key.to_string()));
             let rule = Rule::fact(rs, args);
             self.tu.inner_mut().add_rule(rule);

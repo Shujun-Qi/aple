@@ -1,6 +1,10 @@
-keys$:key_info.
-hashes:hash.
-targets$:targets.
-roles$:role.
-meta$:meta.
-signatures:signatures.
+signatures:RESAMPLE;
+signed:HASH;
+keys:DIRECT;
+keyval:RESAMPLE;
+roles:HASH;
+expires:TIME;
+
+
+
+

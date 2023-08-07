@@ -8,8 +8,8 @@ expires:TIME;
 expected_materials:RULE;
 expected_products:RULE;
 byproducts:RESAMPLE;
-materials:DIRECT;
-products:DIRECT;
+materials:ASSAMBLE;
+products:ASSAMBLE;
 environment:RESAMPLE;
 
 

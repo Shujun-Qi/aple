@@ -32,11 +32,11 @@ pub fn query_dfs<'a>(universe: &'a Universe, query: &Query) -> SolutionIter<'a> 
 pub struct SolutionIter<'s> {
     rules: &'s CompiledRuleDb,
     unresolved_goals: Vec<term_library::TermId>,
-    checkpoints: Vec<Checkpoint>,
+    pub checkpoints: Vec<Checkpoint>,
     solution: SolutionState,
 }
 #[derive(Debug)]
-struct Checkpoint {
+pub struct Checkpoint {
     goal: term_library::TermId,
     main_rule: Sym,
     alternative: usize,
@@ -44,8 +44,15 @@ struct Checkpoint {
     solution_checkpoint: SolutionCheckpoint,
 }
 
+impl Checkpoint {
+    pub fn get_solution_checkpoint(&self) -> &SolutionCheckpoint {
+        &self.solution_checkpoint
+    }
+}
+
 pub enum Step {
     Yield,
+    Precompiled,
     Continue,
     Done,
 }
@@ -67,25 +74,17 @@ impl<'s> SolutionIter<'s> {
                 goals_checkpoint: self.unresolved_goals.len(),
             });
         }
-
-        if self.backtrack_resume() {
-            if self.unresolved_goals.is_empty() {
-                Step::Yield
-            } else {
-                Step::Continue
-            }
-        } else {
-            Step::Done
-        }
+        // println!("checkpoint: {:?}", self.checkpoints);
+        return self.backtrack_resume();
     }
 
     pub fn get_solution(&self) -> Vec<Option<types::Term>> {
         self.solution.get_solution()
     }
 
-    // pub fn get_checkpoints(&self) -> &Vec<Checkpoint> {
-    //     &self.checkpoints
-    // }
+    pub fn get_checkpoints(&self) -> & Vec<Checkpoint> {
+        &self.checkpoints
+    }
 
     pub fn solution_state(&self) -> bool{
         if self.unresolved_goals.len() > 0{
@@ -123,15 +122,25 @@ impl<'s> SolutionIter<'s> {
         false
     }
 
-    fn backtrack_resume(&mut self) -> bool {
+    fn backtrack_resume(&mut self) -> Step {
         while let Some(checkpoint) = self.checkpoints.last() {
             self.solution.restore(&checkpoint.solution_checkpoint);
             self.unresolved_goals.truncate(checkpoint.goals_checkpoint);
+            // match checkpoint.main_rule.ord(){
+            //     4 => {
+            //         return Step::Precompiled;
+            //     }
+            //     _ => {}
+            // }
             if self.resume_checkpoint() {
-                return true;
+                if self.unresolved_goals.is_empty() {
+                    return Step::Yield;
+                } else {
+                    return Step::Continue;
+                }
             }
         }
-        false
+        return Step::Done;
     }
 }
 
@@ -142,6 +151,7 @@ impl<'s> Iterator for SolutionIter<'s> {
         loop {
             match self.step() {
                 Step::Yield => break Some(self.get_solution()),
+                Step::Precompiled => continue,
                 Step::Continue => continue,
                 Step::Done => break None,
             }
@@ -159,7 +169,7 @@ struct SolutionState {
 }
 
 #[derive(Debug)]
-struct SolutionCheckpoint {
+pub struct SolutionCheckpoint {
     assign_checkpoint: usize,
     map_checkpoint: usize,
     lib_checkpoint: term_library::Checkpoint,
@@ -276,7 +286,7 @@ impl SolutionState {
     fn unify(&mut self, goal_term: term_library::TermId, rule_term: term_library::TermId) -> bool {
         let (goal_term_id, goal_term) = self.follow_pcpls(goal_term);
         let (rule_term_id, rule_term) = self.follow_pcpls(rule_term);
-
+        println!("unify {:?} {:?}", goal_term, rule_term);
         match (goal_term, rule_term) {
             (term_library::Term::Principal(goal_pcpl), term_library::Term::Principal(rule_pcpl)) => {
                 if goal_pcpl != rule_pcpl {
@@ -295,6 +305,14 @@ impl SolutionState {
                 term_library::Term::Pred(goal_relation, goal_args),
                 term_library::Term::Pred(rule_relation, rule_args),
             ) => {
+                println!("unify {:?} {:?} {:?} {:?}", goal_relation, goal_args, rule_relation, rule_args);
+                match goal_relation.ord(){
+                    4 => {
+                        println!("unify {:?} {:?} {:?} {:?}", goal_relation, goal_args, rule_relation, rule_args);
+                        return true;
+                    }
+                    _ => {}
+                }
                 if goal_relation != rule_relation {
                     return false;
                 }
@@ -319,7 +337,7 @@ impl SolutionState {
         let (main_rule, main_rule_library) = rule.main_rule();
         let conv_rule_main = self.lib.extend_library(main_rule_library, size);
         let new_main_rule = conv_rule_main(main_rule);
-
+        // println!("unify {:?} {:?}", self.lib.get_term(goal_term), self.lib.get_term(new_main_rule));
         if self.unify(goal_term, new_main_rule) {
             let (sub_rule, sub_rule_library) = rule.sub_rule();
             let conv_sub_rule = self.lib.extend_library(sub_rule_library, size);

@@ -2,7 +2,11 @@ signatures:RESAMPLE;
 signed:HASH;
 keys:DIRECT;
 keyval:RESAMPLE;
-roles:HASH;
+hashes:RESAMPLE;
+roles:DIRECT;
+meta:DIRECT;
+targets:DIRECT;
+roles:FETCH:KSURFIX:.json;
 expires:TIME;
 
 

@@ -3,6 +3,7 @@ use super::*;
 // use ring::agreement::PublicKey;
 // use ring::signature;
 
+use chrono::format::format;
 // use rsa::pkcs1::DecodeRsaPublicKey;
 use serde_json::{Value, from_value, Error};
 // use std::fmt::format;
@@ -24,18 +25,30 @@ use rsa::rand_core::OsRng;
 use std::str;
 use chrono::prelude::*;
 
+// use ed25519_dalek::Keypair;
+// use ed25519_dalek::Signature;
+// use ed25519::signature::Signer as EdSigner;
+// use ed25519::signature::Verifier as EdVerifier;
+
+
+
 
 #[test]
 fn test_signature(){
     
-    let dirname = "test/DemoData/Intoto/debian/";
+    let dirname = "test/DemoData/Tuf/debian/";
     // let _ = parse_files(filename);
     // test_pkg(filename);
     // generate_keys();
     // test_sig();
     // generate_sigs(dirname);
     // validate_sigs(dirname);
-    test_time();
+    // generate_sig_file("test/DemoData/Tuf/debian/root.json");
+    validate_sig_file("test/DemoData/Tuf/debian/root.json");
+    // test_time();
+    // hash_file(dirname);
+    // hash_files();
+    
 }
 
 fn parse_files(filename: &str) -> Result<(),rsa::pkcs8::spki::Error>{
@@ -139,10 +152,6 @@ fn generate_keys(){
     let signing_key = BlindedSigningKey::<Sha256>::new(private_key);
     let verifying_key = signing_key.verifying_key();
 
-    let pk_file = "test/keys/privatekey.pem";
-    let vk_file = "test/keys/publickey.pem";
-    let sk_str = signing_key.write_pkcs8_pem_file(pk_file,LineEnding::default()).unwrap();
-    let vk_str = verifying_key.write_public_key_pem_file(vk_file, LineEnding::LF).unwrap();
     let vk_s = verifying_key.to_public_key_pem(LineEnding::LF).unwrap();
     println!("{:?}", vk_s);
     let mut hasher = Sha256::new();
@@ -150,7 +159,20 @@ fn generate_keys(){
     let result = hasher.finalize();
     let hash = format!("{:x}", result);
     println!("{:?}", hash);
+    let pk_file = format!("test/keys/{}_private.pem", hash);
+    let vk_file = format!("test/keys/{}_public.pem", hash);
+    let sk_str = signing_key.write_pkcs8_pem_file(pk_file,LineEnding::default()).unwrap();
+    let vk_str = verifying_key.write_public_key_pem_file(vk_file, LineEnding::LF).unwrap();
 }
+
+// fn generate_ed25519(){
+//     let mut csprng = OsRng{};
+//     let keypair = ed25519_dalek::Keypair::generate(&mut csprng);
+//     let public_key = keypair.public;
+//     let private_key = keypair.secret;
+//     let vk_s = public_key
+
+// }
 
 fn generate_sigs(dirname: &str){
     let pk_file = "test/keys/privatekey.pem";
@@ -206,6 +228,23 @@ fn validate_sigs(dirname: &str){
     }
 }
 
+fn hash_file(dirname: &str){
+    let paths = fs::read_dir(dirname).unwrap();
+    for path in paths {
+        let path_name = path.unwrap().path();
+        let filename = path_name.as_os_str().to_str().unwrap();
+        let contents = fs::read_to_string(filename)
+        .expect("Something went wrong reading the file");
+        println!("file: {}", filename);
+        println!("lenth: {}", contents.len());
+        let mut hasher = Sha256::new();
+        hasher.update(contents);
+        let result = hasher.finalize();
+        let hash = format!("{:x}", result);
+        println!("{:?}", hash);
+    }
+}
+
 fn test_time(){
     let time = std::time::SystemTime::now();
     let now: DateTime<Utc> = time.into();
@@ -216,4 +255,53 @@ fn test_time(){
     let utc = DateTime::<Local>::from(bn).timestamp();
     println!("{}", bn);
     println!("{}", utc);
+}
+
+
+fn generate_sig_file(filename: &str){
+    let pk_file = "test/keys/ac487edd9fad9535fa97c22c597244b1d3fd6f755b872039736ae1bad545cf86_private.pem";
+    let prv_key = fs::read_to_string(pk_file).unwrap();
+    let private_key = RsaPrivateKey::from_pkcs8_pem(&prv_key).unwrap();
+    let signing_key: SigningKey<Sha256> = SigningKey::from(private_key);
+
+    // let paths = fs::read_dir(dirname).unwrap();
+    // for path in paths {
+    //     let path_name = path.unwrap().path();
+    //     let filename = path_name.as_os_str().to_str().unwrap();
+        let data_str = get_msg(filename).unwrap();
+        let data_bytes = data_str.as_bytes();
+        println!("file: {}", filename);
+        // println!("Data str: {}", data_str);
+        // println!("Data bytes: {:?}", data_bytes);
+        let signature = signing_key.sign_with_rng(&mut OsRng, data_bytes);
+        let sig_bytes = signature.to_vec();
+        let sig_str = hex::encode(&sig_bytes);
+        println!("sig: {:?}", sig_str);
+    // }
+}
+
+fn validate_sig_file(filename: &str){
+    // let pk_file = "test/keys/privatekey.pem";
+    let vk_file = "test/keys/ac487edd9fad9535fa97c22c597244b1d3fd6f755b872039736ae1bad545cf86_public.pem";
+
+    let pub_key = fs::read_to_string(vk_file).unwrap();
+    let public_key = RsaPublicKey::from_public_key_pem(pub_key.as_str()).unwrap();
+    let verifying_key: VerifyingKey<Sha256> = VerifyingKey::from(public_key);
+
+    // let prv_key = fs::read_to_string(pk_file).unwrap();
+    // let private_key = RsaPrivateKey::from_pkcs8_pem(&prv_key).unwrap();
+    // let signing_key: SigningKey<Sha256> = SigningKey::from(private_key);
+
+    // let paths = fs::read_dir(dirname).unwrap();
+    // for path in paths {
+    //     let path_name = path.unwrap().path();
+    //     let filename = path_name.as_os_str().to_str().unwrap();
+        let sig_str = get_sig(filename).unwrap().replace("\"", "");
+        let sig_bytes = hex::decode(sig_str).unwrap();
+        let signature = Signature::try_from(sig_bytes.as_ref()).unwrap();
+
+        let data_str = get_msg(filename).unwrap();
+        let data_bytes = data_str.as_bytes();
+        verifying_key.verify(data_bytes, &signature).expect("verify");
+    // }
 }

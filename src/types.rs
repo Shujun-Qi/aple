@@ -1,4 +1,4 @@
-
+// in aple, any facts/rules/predicates/principals are represented as a tree of terms
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Sym(usize);
 
@@ -12,6 +12,7 @@ impl Sym {
         Sym(ord)
     }
 }
+
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Principal(usize);
@@ -32,6 +33,7 @@ impl Principal {
     }
 }
 
+// a term is the basic unit of a logic expression in aple, it can be a principal or a predicate
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Term {
     Principal(Principal),
@@ -65,6 +67,7 @@ impl From<Predicate> for Term {
     }
 }
 
+// a predicate is a relation with a list of arguments
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Predicate {
     pub relation: Sym,
@@ -102,6 +105,7 @@ pub fn principal(pcpl: Principal) -> Term {
     Term::Principal(pcpl)
 }
 
+// a rule is a predicate with a list of sub-rules represented in predicates as well
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Rule {
     pub main_rule: Predicate,
@@ -126,6 +130,7 @@ impl Rule {
     }
 }
 
+// a query is a list of predicates
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Query {
     pub goals: Vec<Predicate>,
@@ -162,6 +167,7 @@ impl Query {
     }
 }
 
+// qunatify the number of principals in a given rule/query
 fn quantify<R, const N: usize>(f: impl FnOnce([Principal; N]) -> R) -> R {
     let mut pcpls = [Principal::from_ord(0); N];
     pcpls.iter_mut()

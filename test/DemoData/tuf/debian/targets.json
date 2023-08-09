@@ -1,0 +1,47 @@
+{
+ "signatures": [
+  {
+   "keyid": "ad8f3418fb86d884318c9bba298fe48aee4819138c37a56ac3a0f923ae5792df",
+   "sig": "59646a718d3c1d218dddf5d070c1f59980b1ae7b0ede526b802257446fa7817e43b6cdc8dfd00d8a8ac4515516bd3fd0a50e61bf1f38653f30c401efbb9b6f703cb91df7350f3c90ea6faafeb739209d6a44d0dfa6610e2c81e1501597e3bdba9a108e57dd3f0bc9c21556ee8ea4c4c696f940ad253185967ac2f7b0d299fb5a539ebcb12851432707c6defd205095c56fb1ec80de0759499b9efcbd8bbe354e4b203aab950d0141b78a53b6ece9caca3abcd1b627efd199c4fadc69d2ef3f0476d6ab79c3f88d53994776d0c18fb0b00239ce06adfbb19d90cce626f7d21a85b2bfe6a8cb4122df2e7fc152c304e0465e2da68b60fc28184961fadebac4f38c49eb50a5609b93ffb29e03d587145c418f7ad01b2e68930a0abf7d17df17684781aca05ba6b15d6f2415d82510c9185e03ec629d1e7326d15803f2573fa6da7d12c42af7b8712d5cd7e7c671db81e78e884503b3f137ad12003440d4954531381e942d9306ed303beb3e4893e8362ddccb911c5fda95a554968ba4ba02565f41abac345f4c48d330eee7f7a1c89400a06d038455fe218abb5533001fa2987eea3e5022edb739145da7e8b711383623b88a91b5bdbf7c6db46a8c4f5c5eb1bf1a8f7fccadd5953a1f41b9113aea5bc94333b34f47c31023891fcd11c246cb250e90f17bd22e6d337b46ae4f8918372906ab24aa0740114e523766e585df4215e5"
+  }
+ ],
+ "signed": {
+  "_type": "targets",
+  "delegations": {},
+  "expires": "2030-01-01T00:00:00Z",
+  "spec_version": "1.0.0",
+  "targets": {
+   "root.layout": {
+    "hashes": {
+     "sha256": "0ee9d322bfe87b615cf6e4fe1dac492b7e521ebf6239de6a0886a5c00a83e514"
+    },
+    "length": 4135
+   },
+   "fetch.link": {
+    "hashes": {
+     "sha256": "5d40e2024302e43f38860d51d7f0e0e6e3ceac5328ec6532f367745d6dc390f2"
+    },
+    "length": 7816
+   },
+   "modify.link": {
+    "hashes": {
+     "sha256": "61da393ad4eba3e88ec2e9fa1cbf914db7e750456db60407601b669b69c03fb8"
+    },
+    "length": 262852
+   },
+   "extract.link": {
+    "hashes": {
+     "sha256": "f68acf72b70fd4955f55cc7d8309b65c38159d4651ae64001c631315d3929d37"
+    },
+    "length": 133276
+   },
+   "build.link": {
+    "hashes": {
+     "sha256": "054c3b01a29bbde5e27f989744c70f63b724064c1131c0ce9f5ac3e090d0ba41"
+    },
+    "length": 445423
+   }
+  },
+  "version": 1
+ }
+}

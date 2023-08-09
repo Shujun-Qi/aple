@@ -1,0 +1,204 @@
+Sym: Sym(52), Value: String("consistent_snapshot")
+Sym: Sym(78), Value: String("build.link")
+Sym: Sym(61), Value: String("rsassa-pss-sha256")
+Sym: Sym(37), Value: String("validate_tuf_targets")
+Sym: Sym(6), Value: String("leq")
+Sym: Sym(14), Value: String("validate_expiration")
+Sym: Sym(8), Value: String("tufroot")
+Sym: Sym(7), Value: String("validate_tuf_root")
+Sym: Sym(62), Value: String("scheme")
+Sym: Sym(45), Value: String("ac487edd9fad9535fa97c22c597244b1d3fd6f755b872039736ae1bad545cf86")
+Sym: Sym(28), Value: String("validate_tuf_speaker")
+Sym: Sym(53), Value: Number(1691589807)
+Sym: Sym(97), Value: Number(1327)
+Sym: Sym(47), Value: String("958f84136d9d290ce30c836c28ec0d3d02b28a6d188a7de3fcc0947ff5b1511790d85638014d665bd7e66daf8dead22007c8245261944b07da69acaf9da97a4ea6ea25a529d0ca609fb56947437f8193a7347bf88af6649b04ba6568ff002b2c32fb667743eaafc7c41727ae2d72ad26a5ba9a6787aff9fce414d3b674a9870a4f23849ba144ae5e834feb23d4a05dc021628bf7de4a416e8e4897b7f075a025acc2315e004fc715f7e94ea1445b43769c1072f8e00c2c5291634c0e7d1c0a3f7d6eda2dd8be21ab689ccf39e5534f64058ba5171ce201f9fa1f87d6c46ee30d906a62e3d699859e424ddf804bef2df0179bf4ca82c4bfd8e402e61f505808144d3ed1f561e55f5904c0717226d93bb4b445a79cccf2da99d8c908afff4641aec2ddecf5b6e2cb4079a7ad165640b026fe58697240485efe41f3ff2a339571b67e4e9404c833da70810d22e6d4a307e9db4d7539b8c5a529fa5a9f7a1213ac29c06ad3fd6b60fab95643ff02d2713923070f7c567a49b9bfdcb49a8c51d6b70b57184f4f92faf11833ad50a18da4d530a63fb4614a739004071936490f3d7d703440ab3545cd70c901d021c75bc77dc9924573284e220b05f51b0ac8b8cf230e3dd76ef4cffac8c6c4c0107d6aaa09921bc242db1908df367621260b16e1f6750936eb2ad191f635fdebef6344961ebae894864c9733ac576854a86fb85bc3b4")
+Sym: Sym(92), Value: String("0ee9d322bfe87b615cf6e4fe1dac492b7e521ebf6239de6a0886a5c00a83e514")
+Sym: Sym(33), Value: String("ver")
+Sym: Sym(44), Value: String("98a4dcd9485748b23d2d4117ed0b329eea5273097d1a45031be1936052fae627")
+Sym: Sym(96), Value: String("302f9155f09a09695c9cd156d92dd6eee81578577ec93a7512bf3678e6ae6daab08a8fe92be5dea728ed8d0b78179c403496f30f8e118eee79054f936f0df1e115c02183a97250a8658ef99285968110af3524123e7817d2c3fd807234e899fe9d4be0535c8f8ad78858d2ab8010e307ff96e8a911c86ac74a544faeab45ac1f3d8ada8c942b239b599c65c76ed3767fd45f64a7776bbb5f15ab57d46074a9fe5dea0bdd010541f2cbd44a927e6a3e1205d63ea92d54dd6c1479e2f0d6574cfe16e93b1f7f1828d82e8417d6d04d95049eafdb39ada9b1c8da88426fc528c13e6167cc7da31e5839c169a976d8a3b2c1d78e70665a2aaeb17fa5b725b8e13ede728acdcaf32ebac75246da4c2046aa63f6eeb4a5d5be017c06326e5041d757ce7c44f060f1dda417d536d9622cd64fe47f8a4c28b9181d263ed489c0f7eb6714dfc6b29ab2ac0b97d2e9c79d856965c6dc174a1b67efb1fe387d974079aae8824c41e434b4216789ad0e605dc7e15f9fd7f4ad6269ea5786f6aa85379e6bf8eb74acadb70481ff10026b63cb5a3ac62cd582c5eb5d2cca80d89ecaa728c28fc4bed503a4aca7ff8449351c5cc26ebe0ad7e075bd48c896ccd0d4d6c8827e58f65dcf33e3d7e14ad222ba359d384c5c9d478011512c833b46233f7f2cecb7f9d688c4f60ebe9b7f390ac0468d0e34fd0ea4a4a43877cc2231b8c20911b77f281d")
+Sym: Sym(16), Value: String("expires")
+Sym: Sym(31), Value: String("snapshot")
+Sym: Sym(39), Value: String("tfile")
+Sym: Sym(86), Value: String("5d40e2024302e43f38860d51d7f0e0e6e3ceac5328ec6532f367745d6dc390f2")
+Sym: Sym(71), Value: String("553b6ca3b742369b86fcb8f3c4248b213208ab65bf3219c23dd6bc0153f46d7d7a8b9f5a5437c34980b34118de416aefa3c22c7064f8ee94aef9aef2c336127f15cd644c0990f2a0ebfcd07abf7229ce1df0452f92881094debe524391089af16255e05eb440a57768cb527f4d3f2313db5c83b38bb59ef186d927e9d13f06c71908bccf5a94a75fd091eb3d4a0fada13645828146b153f473e949007fa726bd92a9652b3dcca3918d781a81ea32c65a9e2df31de50507d9750676630824f65bb7cfb762f07c16bb9b6bfb0c4892edda58cc1ba94242da866a5ae0e496beb52ed7fa71ae6af7bd2f570ea87b6c527e742b9a6feac5a7c94fb6587119d57180fde5ae98d2e0bd526cd95a851d55dae3f041c4adc1e4ea30d3f7d9287a0a7bde5d0336c579a6e5d6b3981781a4277b3fee6900a5a5e9de4d9b1ff9d3c4b5ee1c11426245c577170041e99abc660b045a4dc2fbb20f25f290cb964fe0bed1a8ba4dd42d1282b0491bbd854324fb884ade99ec16385dea8f81ca0726e8cc72b84b57210ec5d8df7265ec06abe58aa139c7defce2aafab5da9ad60daecd6e4222fa7665301201aec6960385dfc534be406dee4a9dbc5ef8a759e3759e5fed95022b1c20758c0c92aba98e3472e2a8112ab607414d32e0bae9c1a241856b1a36060cc33fc307826ffb3e48b26abd4f71ce7814f9978be907a54bdafd53f029f57aee41")
+Sym: Sym(3), Value: String("lt")
+Sym: Sym(0), Value: String("add")
+Sym: Sym(21), Value: String("pubkey")
+Sym: Sym(22), Value: String("keys")
+Sym: Sym(63), Value: String("-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAtSCh9/tkgxgobQueaoNr\\nusKDWGmvHDcMsqDOYE06iD0JTJONZ2D9dM3bcaEGY2Sb1O6Nz05eZGSFZYLdr/I9\\np/N0zqcWfqVGyMDfSCDPKRCCFpkmEP4uDjyfQcc3JT69dQHvJlisaJWVqzRbfZhC\\n7Mtyq9w2APd1y+3KjIDG9zewVQqyK7Kx2yZLw5LuDMFw17HLhNKpTsGvNe6HK8VL\\n5fUVg0I1/daobfazZkZYMagyHHl/DOFTJB5U0BnXDQMTKO7l4fpu79r69OjKitma\\nDPb8/jWB+Vvmm+KcL1HnkMmXeQEEiu6O549wnk6ryn4YlWpEgIv1VFMqBVLCae6c\\nqVxj6AF7Eu8y9OcTb/V19MW1FbfLdQ7SRquPum48UNsU6WNius0RxGx/zMZZ+lyu\\nFG9paWybRegP4YvvFn+MXeON/sEcmCvyk3f76YVLZjgHfjoC1gE55KC06UJErAwf\\n6T+KS7j15+7eZCSF148A+1JxYQgr32bY42ZQXzAkiil2jl+KPRSFmzm2++sBH57B\\nZJ4+7OVaoXXi0tqi5mNey/i0Z0tHyTcv9DK4oh+2JZk1YUVc9i5R3mnHpPcgvFRi\\n7uRmKJ4NAPWN5Yh0ZDncgaewzEBg3QJsb+nxmqj0X395MqIRAeuB+xBZH44uGoa0\\nrinCi8lFgPu7TRTIf2ZBWYcCAwEAAQ==\\n-----END PUBLIC KEY-----\\n")
+Sym: Sym(74), Value: String("1.0.0")
+Sym: Sym(4), Value: String("gt")
+Sym: Sym(58), Value: String("rsa")
+Sym: Sym(43), Value: String("root.json")
+Sym: Sym(57), Value: String("keyid_hash_algorithms")
+Sym: Sym(80), Value: Number(445423)
+Sym: Sym(77), Value: String("59646a718d3c1d218dddf5d070c1f59980b1ae7b0ede526b802257446fa7817e43b6cdc8dfd00d8a8ac4515516bd3fd0a50e61bf1f38653f30c401efbb9b6f703cb91df7350f3c90ea6faafeb739209d6a44d0dfa6610e2c81e1501597e3bdba9a108e57dd3f0bc9c21556ee8ea4c4c696f940ad253185967ac2f7b0d299fb5a539ebcb12851432707c6defd205095c56fb1ec80de0759499b9efcbd8bbe354e4b203aab950d0141b78a53b6ece9caca3abcd1b627efd199c4fadc69d2ef3f0476d6ab79c3f88d53994776d0c18fb0b00239ce06adfbb19d90cce626f7d21a85b2bfe6a8cb4122df2e7fc152c304e0465e2da68b60fc28184961fadebac4f38c49eb50a5609b93ffb29e03d587145c418f7ad01b2e68930a0abf7d17df17684781aca05ba6b15d6f2415d82510c9185e03ec629d1e7326d15803f2573fa6da7d12c42af7b8712d5cd7e7c671db81e78e884503b3f137ad12003440d4954531381e942d9306ed303beb3e4893e8362ddccb911c5fda95a554968ba4ba02565f41abac345f4c48d330eee7f7a1c89400a06d038455fe218abb5533001fa2987eea3e5022edb739145da7e8b711383623b88a91b5bdbf7c6db46a8c4f5c5eb1bf1a8f7fccadd5953a1f41b9113aea5bc94333b34f47c31023891fcd11c246cb250e90f17bd22e6d337b46ae4f8918372906ab24aa0740114e523766e585df4215e5")
+Sym: Sym(25), Value: String("threshold")
+Sym: Sym(54), Value: Number(1893456000)
+Sym: Sym(87), Value: Number(7816)
+Sym: Sym(36), Value: String("hashes")
+Sym: Sym(17), Value: String("exp")
+Sym: Sym(9), Value: String("sign")
+Sym: Sym(19), Value: String("time")
+Sym: Sym(23), Value: String("keyval")
+Sym: Sym(32), Value: String("version")
+Sym: Sym(27), Value: String("count")
+Sym: Sym(49), Value: String("root")
+Sym: Sym(13), Value: String("signatures")
+Sym: Sym(55), Value: String("299adf66631cd3275d00aedb84df56688c4cfb34f642abf25912546ea1d8a86e")
+Sym: Sym(64), Value: String("ad8f3418fb86d884318c9bba298fe48aee4819138c37a56ac3a0f923ae5792df")
+Sym: Sym(60), Value: String("-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAqeLaOf+hteDPaFt+JDf8\\n3ejh/oSw1rObNEoadv7zvefh5FHRqUMhK1wNyaIBwtDnuk7aVPXaEjKjrXSISyll\\nW3RqzmjpjTFG/eDivGZ5ojpPDKIHChz0RYgAZ/gikGxqQ3KO3sZsI680KXhyK02w\\nPphbeYJbQqqlk5snV3iIAOIM8F/TRqqqpQ3tIX8L+yIeYQriUIyTUWgQ5ULE9Imv\\n9ohj7TuZw6KCVWmNGygBSqnt2hxThtFU3obahG7X7urCKtUfSEN1RRWewUj3bb5T\\nt65ziUtQZBJvimZYe9qcH52nFPEakmOEUYJ6C5HCpMO+niz3oAdnYj+Cmyvvux//\\nyVL3X0JFOeznm/ceQ1NdwQAum4I71TcqJOQfGafj2uQtKhme6A74ei2vJqMw6qBw\\nPt7jEphMzSGabEUKz7accYByHeQ4aoykpA6MnnNnx1d6nw2aMnvQFXU1CloxeuUm\\nnlMruRVZ/mJ38MAiEnVIcaAd7RW1ef9Tz5b+rPoR44l3129W7bWcvZgawhHEwJ+G\\nXAqIqFtwGXDGZ7AYmTrbusdZEPE9k0WEcHFTciqxzEdMcBlRZqhQM59R/ky8yHaU\\noYQLibgm77UPMGjjeMddjtn7Cc0nw6ip3pfmBaKXOXgrtDjWGa61Adenl8itH88J\\n5ifuoJBa1YCB7iWNKDZru20CAwEAAQ==\\n-----END PUBLIC KEY-----\\n")
+Sym: Sym(65), Value: String("-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAxMLf8NCT7y5OfUE4vCeb\\nN4O8vSAzNlfLndoVLp+CXvHXh+yYwkbxaTJSx4H2PB8pUApSa/34xkJz8usOfgZO\\n1KM1FXq7zfKdbkp0aH1qhjOa2avwtaMe8rWzAgue9n9MIm3tCRfYgbZQ/sNjGOBv\\n9BAGyeBGdWXUbOgpgwalhdS/Wzn9WoTuLCv8vV2ds5JfEEjxNOSxgE3yAGeydg/3\\ntZI/Izwrv58/MgaDFugGXD0UAECLLdqogsvYDWA7rVbkY5MhnYt8JelkiyngwBqd\\nKBpcyMdz0P7JO/1jDQ7TrhmHihh/WaXBafwhaxSjZULIEZM4j8wEOGTpeiuBhk2L\\nKF2f/grtc9ICGH5K6I3ml1dmvZ+5NLSWM5UeLthVnyEneH2p7q2EzzMWgznQQxNM\\ngt+aVV2lE/uF9myxWrcffzL3ozbN6uWYIhhhQEy+akMPj614W2oOpkV9a6NC8a0j\\nxUEQ1e+5cpciB5kA+R07LTEiQ/0DXNcbDwJHXyQuwE/XNZ/yP06y396S1XengaAY\\njBlXxNif0Ap5gXrS7YmVl27I1489JjB9CxmCm2zNPksrFzl8Ap2sNWbcWqIbLofW\\nfzTgQjK2uOvsji/EbHj63noKLpsdUfZnR3qgi1sLBfZfGBMhpuz6IMLOtmqf6x+v\\njJZ8/Abk16SHOaVz7zCa9tECAwEAAQ==\\n-----END PUBLIC KEY-----\\n")
+Sym: Sym(66), Value: String("fca8be07d0b411ea0a9a31fdbcc2a7e46ab8371f9057e63ae4f951cb4519a06b")
+Sym: Sym(2), Value: String("eq")
+Sym: Sym(18), Value: String("now")
+Sym: Sym(67), Value: String("-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEApfkWzuoNsjTCWrV2lSsn\\neQgjmQ0RITqW7QLT1SF8omtGU/Rtv847tncCu3OcU9vHX5IvNRQUsl3d4ahRQgf7\\nfDK5okDcAO/GFdLMsZYz/JPJry+z08o1DtMoFwtEhJQbjXivDAaAlvVmBblcNs9R\\nYx2EsgZtJnA81EQtjFIDBDLyuaq54yo1jHbXmU/nIwfb73fO/chrhIvuXN5jgwLU\\nCqGKg6HvqyFelwx5xYV+jvayFlm1wbqB8YHFZfDJlRZJI+woqHYwuJ0M1dxJ265L\\nmxm6pQT6xDm3iBmtd/C0Ywgm8D5mPlblA932tb0DhIMfYKtok6wymR2sSLhlY1Z+\\nXLFOg01J5nwiRy76K7dAvmD4zaeY277ATPJWuvgKtl8UraoxL+Uunw4Lzlj++3AY\\nWX17MX2z1WXB5Mc1NfNSMGgRUAbJ66+drB6Ga4R0CuDr7cOK/6aMe73iKRiN0Qdh\\n1xo5e5r/H6bg8u8E4GZqwXQNhKgMBqdPktuM3k5sazenBbhPpOizBBszCBHN6OZa\\n3wZDnIyCjyqIFHuxHGjvdmLe2Qpg9g0Gvv3rE9w6ixDO88MNO+Mogd1xmVE0rV0l\\nscKStc0xnXd4yQSz4wQ74ue8MMtLiPJxTUYWTkUylZ/ZPDEjbDIeTRk16ua8IFmz\\nAVJtU5DOZIQrkNFy8tq+57sCAwEAAQ==\\n-----END PUBLIC KEY-----\\n")
+Sym: Sym(12), Value: String("sig")
+Sym: Sym(46), Value: String("-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAtSCh9/tkgxgobQueaoNr\nusKDWGmvHDcMsqDOYE06iD0JTJONZ2D9dM3bcaEGY2Sb1O6Nz05eZGSFZYLdr/I9\np/N0zqcWfqVGyMDfSCDPKRCCFpkmEP4uDjyfQcc3JT69dQHvJlisaJWVqzRbfZhC\n7Mtyq9w2APd1y+3KjIDG9zewVQqyK7Kx2yZLw5LuDMFw17HLhNKpTsGvNe6HK8VL\n5fUVg0I1/daobfazZkZYMagyHHl/DOFTJB5U0BnXDQMTKO7l4fpu79r69OjKitma\nDPb8/jWB+Vvmm+KcL1HnkMmXeQEEiu6O549wnk6ryn4YlWpEgIv1VFMqBVLCae6c\nqVxj6AF7Eu8y9OcTb/V19MW1FbfLdQ7SRquPum48UNsU6WNius0RxGx/zMZZ+lyu\nFG9paWybRegP4YvvFn+MXeON/sEcmCvyk3f76YVLZjgHfjoC1gE55KC06UJErAwf\n6T+KS7j15+7eZCSF148A+1JxYQgr32bY42ZQXzAkiil2jl+KPRSFmzm2++sBH57B\nZJ4+7OVaoXXi0tqi5mNey/i0Z0tHyTcv9DK4oh+2JZk1YUVc9i5R3mnHpPcgvFRi\n7uRmKJ4NAPWN5Yh0ZDncgaewzEBg3QJsb+nxmqj0X395MqIRAeuB+xBZH44uGoa0\nrinCi8lFgPu7TRTIf2ZBWYcCAwEAAQ==\n-----END PUBLIC KEY-----\n")
+Sym: Sym(69), Value: String("snapshot.json")
+Sym: Sym(85), Value: String("fetch.link")
+Sym: Sym(42), Value: String("timestamp")
+Sym: Sym(20), Value: String("validate_key")
+Sym: Sym(59), Value: String("keytype")
+Sym: Sym(73), Value: String("meta")
+Sym: Sym(76), Value: String("119063c0108896bea5eb0f2955143ce48653e72b940729531066831787b8a901")
+Sym: Sym(68), Value: String("roles")
+Sym: Sym(81), Value: String("length")
+Sym: Sym(84), Value: Number(133276)
+Sym: Sym(35), Value: String("hash")
+Sym: Sym(48), Value: Number(1)
+Sym: Sym(38), Value: String("targets")
+Sym: Sym(50), Value: String("_type")
+Sym: Sym(51), Value: String("false")
+Sym: Sym(30), Value: String("validate_tuf_snapshot")
+Sym: Sym(56), Value: String("sha256")
+Sym: Sym(72), Value: String("targets.json")
+Sym: Sym(5), Value: String("geq")
+Sym: Sym(89), Value: String("61da393ad4eba3e88ec2e9fa1cbf914db7e750456db60407601b669b69c03fb8")
+Sym: Sym(95), Value: String("bcf7c16d84f7165d0352955c1b8f8b1702c205cf287499056189adf7098c8915")
+Sym: Sym(10), Value: String("keyid")
+Sym: Sym(15), Value: String("speaker")
+Sym: Sym(29), Value: String("keyids")
+Sym: Sym(70), Value: String("c54038493f879ef866d608a2682b49e68481e601e1cee41c9883d76ee8b8d679")
+Sym: Sym(11), Value: String("pub_key")
+Sym: Sym(40), Value: String("validate_tuf")
+Sym: Sym(79), Value: String("054c3b01a29bbde5e27f989744c70f63b724064c1131c0ce9f5ac3e090d0ba41")
+Sym: Sym(75), Value: String("spec_version")
+Sym: Sym(88), Value: String("modify.link")
+Sym: Sym(41), Value: String("debian")
+Sym: Sym(26), Value: String("verified")
+Sym: Sym(83), Value: String("f68acf72b70fd4955f55cc7d8309b65c38159d4651ae64001c631315d3929d37")
+Sym: Sym(94), Value: String("timestamp.json")
+Sym: Sym(91), Value: String("root.layout")
+Sym: Sym(1), Value: String("sub")
+Sym: Sym(34), Value: String("sfile")
+Sym: Sym(82), Value: String("extract.link")
+Sym: Sym(93), Value: Number(4135)
+Sym: Sym(24), Value: String("validate_threshold")
+Sym: Sym(90), Value: Number(262852)
+relation:String("validate_tuf_root"), args: [String("tufroot")], sub_rule:[String("sign"), String("signatures"), String("validate_expiration")]
+relation:String("validate_expiration"), args: [None], sub_rule:[String("expires"), String("now"), String("leq")]
+relation:String("validate_key"), args: [None, None], sub_rule:[String("validate_tuf_root"), String("keys"), String("keyval")]
+relation:String("validate_threshold"), args: [None], sub_rule:[String("threshold"), String("verified"), String("geq")]
+relation:String("validate_tuf_speaker"), args: [None], sub_rule:[String("keyids"), String("validate_key"), String("sign"), String("signatures"), String("validate_expiration"), String("validate_threshold")]
+relation:String("validate_tuf_snapshot"), args: [String("snapshot")], sub_rule:[String("validate_tuf_speaker"), String("version"), String("version"), String("hash"), String("hashes")]
+relation:String("validate_tuf_targets"), args: [String("targets")], sub_rule:[String("validate_tuf_speaker"), String("version"), String("version")]
+relation:String("validate_tuf"), args: [String("debian")], sub_rule:[String("validate_tuf_root"), String("validate_tuf_speaker"), String("validate_tuf_snapshot"), String("validate_tuf_targets")]
+relation:String("hash"), args: [String("tufroot"), String("root.json"), String("98a4dcd9485748b23d2d4117ed0b329eea5273097d1a45031be1936052fae627")], sub_rule:[]
+relation:String("sign"), args: [String("ac487edd9fad9535fa97c22c597244b1d3fd6f755b872039736ae1bad545cf86"), String("tufroot"), String("-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAtSCh9/tkgxgobQueaoNr\nusKDWGmvHDcMsqDOYE06iD0JTJONZ2D9dM3bcaEGY2Sb1O6Nz05eZGSFZYLdr/I9\np/N0zqcWfqVGyMDfSCDPKRCCFpkmEP4uDjyfQcc3JT69dQHvJlisaJWVqzRbfZhC\n7Mtyq9w2APd1y+3KjIDG9zewVQqyK7Kx2yZLw5LuDMFw17HLhNKpTsGvNe6HK8VL\n5fUVg0I1/daobfazZkZYMagyHHl/DOFTJB5U0BnXDQMTKO7l4fpu79r69OjKitma\nDPb8/jWB+Vvmm+KcL1HnkMmXeQEEiu6O549wnk6ryn4YlWpEgIv1VFMqBVLCae6c\nqVxj6AF7Eu8y9OcTb/V19MW1FbfLdQ7SRquPum48UNsU6WNius0RxGx/zMZZ+lyu\nFG9paWybRegP4YvvFn+MXeON/sEcmCvyk3f76YVLZjgHfjoC1gE55KC06UJErAwf\n6T+KS7j15+7eZCSF148A+1JxYQgr32bY42ZQXzAkiil2jl+KPRSFmzm2++sBH57B\nZJ4+7OVaoXXi0tqi5mNey/i0Z0tHyTcv9DK4oh+2JZk1YUVc9i5R3mnHpPcgvFRi\n7uRmKJ4NAPWN5Yh0ZDncgaewzEBg3QJsb+nxmqj0X395MqIRAeuB+xBZH44uGoa0\nrinCi8lFgPu7TRTIf2ZBWYcCAwEAAQ==\n-----END PUBLIC KEY-----\n"), String("958f84136d9d290ce30c836c28ec0d3d02b28a6d188a7de3fcc0947ff5b1511790d85638014d665bd7e66daf8dead22007c8245261944b07da69acaf9da97a4ea6ea25a529d0ca609fb56947437f8193a7347bf88af6649b04ba6568ff002b2c32fb667743eaafc7c41727ae2d72ad26a5ba9a6787aff9fce414d3b674a9870a4f23849ba144ae5e834feb23d4a05dc021628bf7de4a416e8e4897b7f075a025acc2315e004fc715f7e94ea1445b43769c1072f8e00c2c5291634c0e7d1c0a3f7d6eda2dd8be21ab689ccf39e5534f64058ba5171ce201f9fa1f87d6c46ee30d906a62e3d699859e424ddf804bef2df0179bf4ca82c4bfd8e402e61f505808144d3ed1f561e55f5904c0717226d93bb4b445a79cccf2da99d8c908afff4641aec2ddecf5b6e2cb4079a7ad165640b026fe58697240485efe41f3ff2a339571b67e4e9404c833da70810d22e6d4a307e9db4d7539b8c5a529fa5a9f7a1213ac29c06ad3fd6b60fab95643ff02d2713923070f7c567a49b9bfdcb49a8c51d6b70b57184f4f92faf11833ad50a18da4d530a63fb4614a739004071936490f3d7d703440ab3545cd70c901d021c75bc77dc9924573284e220b05f51b0ac8b8cf230e3dd76ef4cffac8c6c4c0107d6aaa09921bc242db1908df367621260b16e1f6750936eb2ad191f635fdebef6344961ebae894864c9733ac576854a86fb85bc3b4")], sub_rule:[]
+relation:String("verified"), args: [String("tufroot"), Number(1)], sub_rule:[]
+relation:String("geq"), args: [Number(1), Number(1)], sub_rule:[]
+relation:String("signatures"), args: [String("tufroot"), String("ac487edd9fad9535fa97c22c597244b1d3fd6f755b872039736ae1bad545cf86"), String("958f84136d9d290ce30c836c28ec0d3d02b28a6d188a7de3fcc0947ff5b1511790d85638014d665bd7e66daf8dead22007c8245261944b07da69acaf9da97a4ea6ea25a529d0ca609fb56947437f8193a7347bf88af6649b04ba6568ff002b2c32fb667743eaafc7c41727ae2d72ad26a5ba9a6787aff9fce414d3b674a9870a4f23849ba144ae5e834feb23d4a05dc021628bf7de4a416e8e4897b7f075a025acc2315e004fc715f7e94ea1445b43769c1072f8e00c2c5291634c0e7d1c0a3f7d6eda2dd8be21ab689ccf39e5534f64058ba5171ce201f9fa1f87d6c46ee30d906a62e3d699859e424ddf804bef2df0179bf4ca82c4bfd8e402e61f505808144d3ed1f561e55f5904c0717226d93bb4b445a79cccf2da99d8c908afff4641aec2ddecf5b6e2cb4079a7ad165640b026fe58697240485efe41f3ff2a339571b67e4e9404c833da70810d22e6d4a307e9db4d7539b8c5a529fa5a9f7a1213ac29c06ad3fd6b60fab95643ff02d2713923070f7c567a49b9bfdcb49a8c51d6b70b57184f4f92faf11833ad50a18da4d530a63fb4614a739004071936490f3d7d703440ab3545cd70c901d021c75bc77dc9924573284e220b05f51b0ac8b8cf230e3dd76ef4cffac8c6c4c0107d6aaa09921bc242db1908df367621260b16e1f6750936eb2ad191f635fdebef6344961ebae894864c9733ac576854a86fb85bc3b4")], sub_rule:[]
+relation:String("_type"), args: [String("tufroot"), String("root")], sub_rule:[]
+relation:String("consistent_snapshot"), args: [String("tufroot"), String("false")], sub_rule:[]
+relation:String("now"), args: [String("tufroot"), Number(1691589807)], sub_rule:[]
+relation:String("expires"), args: [String("tufroot"), Number(1893456000)], sub_rule:[]
+relation:String("leq"), args: [Number(1691589807), Number(1893456000)], sub_rule:[]
+relation:String("keys"), args: [String("tufroot"), String("299adf66631cd3275d00aedb84df56688c4cfb34f642abf25912546ea1d8a86e")], sub_rule:[]
+relation:String("keyid_hash_algorithms"), args: [String("299adf66631cd3275d00aedb84df56688c4cfb34f642abf25912546ea1d8a86e"), String("sha256")], sub_rule:[]
+relation:String("keytype"), args: [String("299adf66631cd3275d00aedb84df56688c4cfb34f642abf25912546ea1d8a86e"), String("rsa")], sub_rule:[]
+relation:String("keyval"), args: [String("299adf66631cd3275d00aedb84df56688c4cfb34f642abf25912546ea1d8a86e"), String("-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAqeLaOf+hteDPaFt+JDf8\\n3ejh/oSw1rObNEoadv7zvefh5FHRqUMhK1wNyaIBwtDnuk7aVPXaEjKjrXSISyll\\nW3RqzmjpjTFG/eDivGZ5ojpPDKIHChz0RYgAZ/gikGxqQ3KO3sZsI680KXhyK02w\\nPphbeYJbQqqlk5snV3iIAOIM8F/TRqqqpQ3tIX8L+yIeYQriUIyTUWgQ5ULE9Imv\\n9ohj7TuZw6KCVWmNGygBSqnt2hxThtFU3obahG7X7urCKtUfSEN1RRWewUj3bb5T\\nt65ziUtQZBJvimZYe9qcH52nFPEakmOEUYJ6C5HCpMO+niz3oAdnYj+Cmyvvux//\\nyVL3X0JFOeznm/ceQ1NdwQAum4I71TcqJOQfGafj2uQtKhme6A74ei2vJqMw6qBw\\nPt7jEphMzSGabEUKz7accYByHeQ4aoykpA6MnnNnx1d6nw2aMnvQFXU1CloxeuUm\\nnlMruRVZ/mJ38MAiEnVIcaAd7RW1ef9Tz5b+rPoR44l3129W7bWcvZgawhHEwJ+G\\nXAqIqFtwGXDGZ7AYmTrbusdZEPE9k0WEcHFTciqxzEdMcBlRZqhQM59R/ky8yHaU\\noYQLibgm77UPMGjjeMddjtn7Cc0nw6ip3pfmBaKXOXgrtDjWGa61Adenl8itH88J\\n5ifuoJBa1YCB7iWNKDZru20CAwEAAQ==\\n-----END PUBLIC KEY-----\\n")], sub_rule:[]
+relation:String("scheme"), args: [String("299adf66631cd3275d00aedb84df56688c4cfb34f642abf25912546ea1d8a86e"), String("rsassa-pss-sha256")], sub_rule:[]
+relation:String("keys"), args: [String("tufroot"), String("ac487edd9fad9535fa97c22c597244b1d3fd6f755b872039736ae1bad545cf86")], sub_rule:[]
+relation:String("keyid_hash_algorithms"), args: [String("ac487edd9fad9535fa97c22c597244b1d3fd6f755b872039736ae1bad545cf86"), String("sha256")], sub_rule:[]
+relation:String("keytype"), args: [String("ac487edd9fad9535fa97c22c597244b1d3fd6f755b872039736ae1bad545cf86"), String("rsa")], sub_rule:[]
+relation:String("keyval"), args: [String("ac487edd9fad9535fa97c22c597244b1d3fd6f755b872039736ae1bad545cf86"), String("-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAtSCh9/tkgxgobQueaoNr\\nusKDWGmvHDcMsqDOYE06iD0JTJONZ2D9dM3bcaEGY2Sb1O6Nz05eZGSFZYLdr/I9\\np/N0zqcWfqVGyMDfSCDPKRCCFpkmEP4uDjyfQcc3JT69dQHvJlisaJWVqzRbfZhC\\n7Mtyq9w2APd1y+3KjIDG9zewVQqyK7Kx2yZLw5LuDMFw17HLhNKpTsGvNe6HK8VL\\n5fUVg0I1/daobfazZkZYMagyHHl/DOFTJB5U0BnXDQMTKO7l4fpu79r69OjKitma\\nDPb8/jWB+Vvmm+KcL1HnkMmXeQEEiu6O549wnk6ryn4YlWpEgIv1VFMqBVLCae6c\\nqVxj6AF7Eu8y9OcTb/V19MW1FbfLdQ7SRquPum48UNsU6WNius0RxGx/zMZZ+lyu\\nFG9paWybRegP4YvvFn+MXeON/sEcmCvyk3f76YVLZjgHfjoC1gE55KC06UJErAwf\\n6T+KS7j15+7eZCSF148A+1JxYQgr32bY42ZQXzAkiil2jl+KPRSFmzm2++sBH57B\\nZJ4+7OVaoXXi0tqi5mNey/i0Z0tHyTcv9DK4oh+2JZk1YUVc9i5R3mnHpPcgvFRi\\n7uRmKJ4NAPWN5Yh0ZDncgaewzEBg3QJsb+nxmqj0X395MqIRAeuB+xBZH44uGoa0\\nrinCi8lFgPu7TRTIf2ZBWYcCAwEAAQ==\\n-----END PUBLIC KEY-----\\n")], sub_rule:[]
+relation:String("scheme"), args: [String("ac487edd9fad9535fa97c22c597244b1d3fd6f755b872039736ae1bad545cf86"), String("rsassa-pss-sha256")], sub_rule:[]
+relation:String("keys"), args: [String("tufroot"), String("ad8f3418fb86d884318c9bba298fe48aee4819138c37a56ac3a0f923ae5792df")], sub_rule:[]
+relation:String("keyid_hash_algorithms"), args: [String("ad8f3418fb86d884318c9bba298fe48aee4819138c37a56ac3a0f923ae5792df"), String("sha256")], sub_rule:[]
+relation:String("keytype"), args: [String("ad8f3418fb86d884318c9bba298fe48aee4819138c37a56ac3a0f923ae5792df"), String("rsa")], sub_rule:[]
+relation:String("keyval"), args: [String("ad8f3418fb86d884318c9bba298fe48aee4819138c37a56ac3a0f923ae5792df"), String("-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAxMLf8NCT7y5OfUE4vCeb\\nN4O8vSAzNlfLndoVLp+CXvHXh+yYwkbxaTJSx4H2PB8pUApSa/34xkJz8usOfgZO\\n1KM1FXq7zfKdbkp0aH1qhjOa2avwtaMe8rWzAgue9n9MIm3tCRfYgbZQ/sNjGOBv\\n9BAGyeBGdWXUbOgpgwalhdS/Wzn9WoTuLCv8vV2ds5JfEEjxNOSxgE3yAGeydg/3\\ntZI/Izwrv58/MgaDFugGXD0UAECLLdqogsvYDWA7rVbkY5MhnYt8JelkiyngwBqd\\nKBpcyMdz0P7JO/1jDQ7TrhmHihh/WaXBafwhaxSjZULIEZM4j8wEOGTpeiuBhk2L\\nKF2f/grtc9ICGH5K6I3ml1dmvZ+5NLSWM5UeLthVnyEneH2p7q2EzzMWgznQQxNM\\ngt+aVV2lE/uF9myxWrcffzL3ozbN6uWYIhhhQEy+akMPj614W2oOpkV9a6NC8a0j\\nxUEQ1e+5cpciB5kA+R07LTEiQ/0DXNcbDwJHXyQuwE/XNZ/yP06y396S1XengaAY\\njBlXxNif0Ap5gXrS7YmVl27I1489JjB9CxmCm2zNPksrFzl8Ap2sNWbcWqIbLofW\\nfzTgQjK2uOvsji/EbHj63noKLpsdUfZnR3qgi1sLBfZfGBMhpuz6IMLOtmqf6x+v\\njJZ8/Abk16SHOaVz7zCa9tECAwEAAQ==\\n-----END PUBLIC KEY-----\\n")], sub_rule:[]
+relation:String("scheme"), args: [String("ad8f3418fb86d884318c9bba298fe48aee4819138c37a56ac3a0f923ae5792df"), String("rsassa-pss-sha256")], sub_rule:[]
+relation:String("keys"), args: [String("tufroot"), String("fca8be07d0b411ea0a9a31fdbcc2a7e46ab8371f9057e63ae4f951cb4519a06b")], sub_rule:[]
+relation:String("keyid_hash_algorithms"), args: [String("fca8be07d0b411ea0a9a31fdbcc2a7e46ab8371f9057e63ae4f951cb4519a06b"), String("sha256")], sub_rule:[]
+relation:String("keytype"), args: [String("fca8be07d0b411ea0a9a31fdbcc2a7e46ab8371f9057e63ae4f951cb4519a06b"), String("rsa")], sub_rule:[]
+relation:String("keyval"), args: [String("fca8be07d0b411ea0a9a31fdbcc2a7e46ab8371f9057e63ae4f951cb4519a06b"), String("-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEApfkWzuoNsjTCWrV2lSsn\\neQgjmQ0RITqW7QLT1SF8omtGU/Rtv847tncCu3OcU9vHX5IvNRQUsl3d4ahRQgf7\\nfDK5okDcAO/GFdLMsZYz/JPJry+z08o1DtMoFwtEhJQbjXivDAaAlvVmBblcNs9R\\nYx2EsgZtJnA81EQtjFIDBDLyuaq54yo1jHbXmU/nIwfb73fO/chrhIvuXN5jgwLU\\nCqGKg6HvqyFelwx5xYV+jvayFlm1wbqB8YHFZfDJlRZJI+woqHYwuJ0M1dxJ265L\\nmxm6pQT6xDm3iBmtd/C0Ywgm8D5mPlblA932tb0DhIMfYKtok6wymR2sSLhlY1Z+\\nXLFOg01J5nwiRy76K7dAvmD4zaeY277ATPJWuvgKtl8UraoxL+Uunw4Lzlj++3AY\\nWX17MX2z1WXB5Mc1NfNSMGgRUAbJ66+drB6Ga4R0CuDr7cOK/6aMe73iKRiN0Qdh\\n1xo5e5r/H6bg8u8E4GZqwXQNhKgMBqdPktuM3k5sazenBbhPpOizBBszCBHN6OZa\\n3wZDnIyCjyqIFHuxHGjvdmLe2Qpg9g0Gvv3rE9w6ixDO88MNO+Mogd1xmVE0rV0l\\nscKStc0xnXd4yQSz4wQ74ue8MMtLiPJxTUYWTkUylZ/ZPDEjbDIeTRk16ua8IFmz\\nAVJtU5DOZIQrkNFy8tq+57sCAwEAAQ==\\n-----END PUBLIC KEY-----\\n")], sub_rule:[]
+relation:String("scheme"), args: [String("fca8be07d0b411ea0a9a31fdbcc2a7e46ab8371f9057e63ae4f951cb4519a06b"), String("rsassa-pss-sha256")], sub_rule:[]
+relation:String("roles"), args: [String("tufroot"), String("root")], sub_rule:[]
+relation:String("keyids"), args: [String("root"), String("ac487edd9fad9535fa97c22c597244b1d3fd6f755b872039736ae1bad545cf86")], sub_rule:[]
+relation:String("threshold"), args: [String("root"), Number(1)], sub_rule:[]
+relation:String("roles"), args: [String("tufroot"), String("snapshot")], sub_rule:[]
+relation:String("hash"), args: [String("snapshot"), String("snapshot.json"), String("c54038493f879ef866d608a2682b49e68481e601e1cee41c9883d76ee8b8d679")], sub_rule:[]
+relation:String("sign"), args: [String("299adf66631cd3275d00aedb84df56688c4cfb34f642abf25912546ea1d8a86e"), String("snapshot"), String("-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAqeLaOf+hteDPaFt+JDf8\\n3ejh/oSw1rObNEoadv7zvefh5FHRqUMhK1wNyaIBwtDnuk7aVPXaEjKjrXSISyll\\nW3RqzmjpjTFG/eDivGZ5ojpPDKIHChz0RYgAZ/gikGxqQ3KO3sZsI680KXhyK02w\\nPphbeYJbQqqlk5snV3iIAOIM8F/TRqqqpQ3tIX8L+yIeYQriUIyTUWgQ5ULE9Imv\\n9ohj7TuZw6KCVWmNGygBSqnt2hxThtFU3obahG7X7urCKtUfSEN1RRWewUj3bb5T\\nt65ziUtQZBJvimZYe9qcH52nFPEakmOEUYJ6C5HCpMO+niz3oAdnYj+Cmyvvux//\\nyVL3X0JFOeznm/ceQ1NdwQAum4I71TcqJOQfGafj2uQtKhme6A74ei2vJqMw6qBw\\nPt7jEphMzSGabEUKz7accYByHeQ4aoykpA6MnnNnx1d6nw2aMnvQFXU1CloxeuUm\\nnlMruRVZ/mJ38MAiEnVIcaAd7RW1ef9Tz5b+rPoR44l3129W7bWcvZgawhHEwJ+G\\nXAqIqFtwGXDGZ7AYmTrbusdZEPE9k0WEcHFTciqxzEdMcBlRZqhQM59R/ky8yHaU\\noYQLibgm77UPMGjjeMddjtn7Cc0nw6ip3pfmBaKXOXgrtDjWGa61Adenl8itH88J\\n5ifuoJBa1YCB7iWNKDZru20CAwEAAQ==\\n-----END PUBLIC KEY-----\\n"), String("553b6ca3b742369b86fcb8f3c4248b213208ab65bf3219c23dd6bc0153f46d7d7a8b9f5a5437c34980b34118de416aefa3c22c7064f8ee94aef9aef2c336127f15cd644c0990f2a0ebfcd07abf7229ce1df0452f92881094debe524391089af16255e05eb440a57768cb527f4d3f2313db5c83b38bb59ef186d927e9d13f06c71908bccf5a94a75fd091eb3d4a0fada13645828146b153f473e949007fa726bd92a9652b3dcca3918d781a81ea32c65a9e2df31de50507d9750676630824f65bb7cfb762f07c16bb9b6bfb0c4892edda58cc1ba94242da866a5ae0e496beb52ed7fa71ae6af7bd2f570ea87b6c527e742b9a6feac5a7c94fb6587119d57180fde5ae98d2e0bd526cd95a851d55dae3f041c4adc1e4ea30d3f7d9287a0a7bde5d0336c579a6e5d6b3981781a4277b3fee6900a5a5e9de4d9b1ff9d3c4b5ee1c11426245c577170041e99abc660b045a4dc2fbb20f25f290cb964fe0bed1a8ba4dd42d1282b0491bbd854324fb884ade99ec16385dea8f81ca0726e8cc72b84b57210ec5d8df7265ec06abe58aa139c7defce2aafab5da9ad60daecd6e4222fa7665301201aec6960385dfc534be406dee4a9dbc5ef8a759e3759e5fed95022b1c20758c0c92aba98e3472e2a8112ab607414d32e0bae9c1a241856b1a36060cc33fc307826ffb3e48b26abd4f71ce7814f9978be907a54bdafd53f029f57aee41")], sub_rule:[]
+relation:String("verified"), args: [String("snapshot"), Number(1)], sub_rule:[]
+relation:String("geq"), args: [Number(1), Number(1)], sub_rule:[]
+relation:String("signatures"), args: [String("snapshot"), String("299adf66631cd3275d00aedb84df56688c4cfb34f642abf25912546ea1d8a86e"), String("553b6ca3b742369b86fcb8f3c4248b213208ab65bf3219c23dd6bc0153f46d7d7a8b9f5a5437c34980b34118de416aefa3c22c7064f8ee94aef9aef2c336127f15cd644c0990f2a0ebfcd07abf7229ce1df0452f92881094debe524391089af16255e05eb440a57768cb527f4d3f2313db5c83b38bb59ef186d927e9d13f06c71908bccf5a94a75fd091eb3d4a0fada13645828146b153f473e949007fa726bd92a9652b3dcca3918d781a81ea32c65a9e2df31de50507d9750676630824f65bb7cfb762f07c16bb9b6bfb0c4892edda58cc1ba94242da866a5ae0e496beb52ed7fa71ae6af7bd2f570ea87b6c527e742b9a6feac5a7c94fb6587119d57180fde5ae98d2e0bd526cd95a851d55dae3f041c4adc1e4ea30d3f7d9287a0a7bde5d0336c579a6e5d6b3981781a4277b3fee6900a5a5e9de4d9b1ff9d3c4b5ee1c11426245c577170041e99abc660b045a4dc2fbb20f25f290cb964fe0bed1a8ba4dd42d1282b0491bbd854324fb884ade99ec16385dea8f81ca0726e8cc72b84b57210ec5d8df7265ec06abe58aa139c7defce2aafab5da9ad60daecd6e4222fa7665301201aec6960385dfc534be406dee4a9dbc5ef8a759e3759e5fed95022b1c20758c0c92aba98e3472e2a8112ab607414d32e0bae9c1a241856b1a36060cc33fc307826ffb3e48b26abd4f71ce7814f9978be907a54bdafd53f029f57aee41")], sub_rule:[]
+relation:String("_type"), args: [String("snapshot"), String("snapshot")], sub_rule:[]
+relation:String("now"), args: [String("snapshot"), Number(1691589807)], sub_rule:[]
+relation:String("expires"), args: [String("snapshot"), Number(1893456000)], sub_rule:[]
+relation:String("leq"), args: [Number(1691589807), Number(1893456000)], sub_rule:[]
+relation:String("meta"), args: [String("snapshot"), String("targets.json")], sub_rule:[]
+relation:String("version"), args: [String("targets.json"), Number(1)], sub_rule:[]
+relation:String("spec_version"), args: [String("snapshot"), String("1.0.0")], sub_rule:[]
+relation:String("version"), args: [String("snapshot"), Number(1)], sub_rule:[]
+relation:String("keyids"), args: [String("snapshot"), String("299adf66631cd3275d00aedb84df56688c4cfb34f642abf25912546ea1d8a86e")], sub_rule:[]
+relation:String("threshold"), args: [String("snapshot"), Number(1)], sub_rule:[]
+relation:String("roles"), args: [String("tufroot"), String("targets")], sub_rule:[]
+relation:String("hash"), args: [String("targets"), String("targets.json"), String("119063c0108896bea5eb0f2955143ce48653e72b940729531066831787b8a901")], sub_rule:[]
+relation:String("sign"), args: [String("ad8f3418fb86d884318c9bba298fe48aee4819138c37a56ac3a0f923ae5792df"), String("targets"), String("-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAxMLf8NCT7y5OfUE4vCeb\\nN4O8vSAzNlfLndoVLp+CXvHXh+yYwkbxaTJSx4H2PB8pUApSa/34xkJz8usOfgZO\\n1KM1FXq7zfKdbkp0aH1qhjOa2avwtaMe8rWzAgue9n9MIm3tCRfYgbZQ/sNjGOBv\\n9BAGyeBGdWXUbOgpgwalhdS/Wzn9WoTuLCv8vV2ds5JfEEjxNOSxgE3yAGeydg/3\\ntZI/Izwrv58/MgaDFugGXD0UAECLLdqogsvYDWA7rVbkY5MhnYt8JelkiyngwBqd\\nKBpcyMdz0P7JO/1jDQ7TrhmHihh/WaXBafwhaxSjZULIEZM4j8wEOGTpeiuBhk2L\\nKF2f/grtc9ICGH5K6I3ml1dmvZ+5NLSWM5UeLthVnyEneH2p7q2EzzMWgznQQxNM\\ngt+aVV2lE/uF9myxWrcffzL3ozbN6uWYIhhhQEy+akMPj614W2oOpkV9a6NC8a0j\\nxUEQ1e+5cpciB5kA+R07LTEiQ/0DXNcbDwJHXyQuwE/XNZ/yP06y396S1XengaAY\\njBlXxNif0Ap5gXrS7YmVl27I1489JjB9CxmCm2zNPksrFzl8Ap2sNWbcWqIbLofW\\nfzTgQjK2uOvsji/EbHj63noKLpsdUfZnR3qgi1sLBfZfGBMhpuz6IMLOtmqf6x+v\\njJZ8/Abk16SHOaVz7zCa9tECAwEAAQ==\\n-----END PUBLIC KEY-----\\n"), String("59646a718d3c1d218dddf5d070c1f59980b1ae7b0ede526b802257446fa7817e43b6cdc8dfd00d8a8ac4515516bd3fd0a50e61bf1f38653f30c401efbb9b6f703cb91df7350f3c90ea6faafeb739209d6a44d0dfa6610e2c81e1501597e3bdba9a108e57dd3f0bc9c21556ee8ea4c4c696f940ad253185967ac2f7b0d299fb5a539ebcb12851432707c6defd205095c56fb1ec80de0759499b9efcbd8bbe354e4b203aab950d0141b78a53b6ece9caca3abcd1b627efd199c4fadc69d2ef3f0476d6ab79c3f88d53994776d0c18fb0b00239ce06adfbb19d90cce626f7d21a85b2bfe6a8cb4122df2e7fc152c304e0465e2da68b60fc28184961fadebac4f38c49eb50a5609b93ffb29e03d587145c418f7ad01b2e68930a0abf7d17df17684781aca05ba6b15d6f2415d82510c9185e03ec629d1e7326d15803f2573fa6da7d12c42af7b8712d5cd7e7c671db81e78e884503b3f137ad12003440d4954531381e942d9306ed303beb3e4893e8362ddccb911c5fda95a554968ba4ba02565f41abac345f4c48d330eee7f7a1c89400a06d038455fe218abb5533001fa2987eea3e5022edb739145da7e8b711383623b88a91b5bdbf7c6db46a8c4f5c5eb1bf1a8f7fccadd5953a1f41b9113aea5bc94333b34f47c31023891fcd11c246cb250e90f17bd22e6d337b46ae4f8918372906ab24aa0740114e523766e585df4215e5")], sub_rule:[]
+relation:String("verified"), args: [String("targets"), Number(1)], sub_rule:[]
+relation:String("geq"), args: [Number(1), Number(1)], sub_rule:[]
+relation:String("signatures"), args: [String("targets"), String("ad8f3418fb86d884318c9bba298fe48aee4819138c37a56ac3a0f923ae5792df"), String("59646a718d3c1d218dddf5d070c1f59980b1ae7b0ede526b802257446fa7817e43b6cdc8dfd00d8a8ac4515516bd3fd0a50e61bf1f38653f30c401efbb9b6f703cb91df7350f3c90ea6faafeb739209d6a44d0dfa6610e2c81e1501597e3bdba9a108e57dd3f0bc9c21556ee8ea4c4c696f940ad253185967ac2f7b0d299fb5a539ebcb12851432707c6defd205095c56fb1ec80de0759499b9efcbd8bbe354e4b203aab950d0141b78a53b6ece9caca3abcd1b627efd199c4fadc69d2ef3f0476d6ab79c3f88d53994776d0c18fb0b00239ce06adfbb19d90cce626f7d21a85b2bfe6a8cb4122df2e7fc152c304e0465e2da68b60fc28184961fadebac4f38c49eb50a5609b93ffb29e03d587145c418f7ad01b2e68930a0abf7d17df17684781aca05ba6b15d6f2415d82510c9185e03ec629d1e7326d15803f2573fa6da7d12c42af7b8712d5cd7e7c671db81e78e884503b3f137ad12003440d4954531381e942d9306ed303beb3e4893e8362ddccb911c5fda95a554968ba4ba02565f41abac345f4c48d330eee7f7a1c89400a06d038455fe218abb5533001fa2987eea3e5022edb739145da7e8b711383623b88a91b5bdbf7c6db46a8c4f5c5eb1bf1a8f7fccadd5953a1f41b9113aea5bc94333b34f47c31023891fcd11c246cb250e90f17bd22e6d337b46ae4f8918372906ab24aa0740114e523766e585df4215e5")], sub_rule:[]
+relation:String("_type"), args: [String("targets"), String("targets")], sub_rule:[]
+relation:String("now"), args: [String("targets"), Number(1691589807)], sub_rule:[]
+relation:String("expires"), args: [String("targets"), Number(1893456000)], sub_rule:[]
+relation:String("leq"), args: [Number(1691589807), Number(1893456000)], sub_rule:[]
+relation:String("spec_version"), args: [String("targets"), String("1.0.0")], sub_rule:[]
+relation:String("targets"), args: [String("targets"), String("build.link")], sub_rule:[]
+relation:String("hashes"), args: [String("build.link"), String("054c3b01a29bbde5e27f989744c70f63b724064c1131c0ce9f5ac3e090d0ba41")], sub_rule:[]
+relation:String("length"), args: [String("build.link"), Number(445423)], sub_rule:[]
+relation:String("targets"), args: [String("targets"), String("extract.link")], sub_rule:[]
+relation:String("hashes"), args: [String("extract.link"), String("f68acf72b70fd4955f55cc7d8309b65c38159d4651ae64001c631315d3929d37")], sub_rule:[]
+relation:String("length"), args: [String("extract.link"), Number(133276)], sub_rule:[]
+relation:String("targets"), args: [String("targets"), String("fetch.link")], sub_rule:[]
+relation:String("hashes"), args: [String("fetch.link"), String("5d40e2024302e43f38860d51d7f0e0e6e3ceac5328ec6532f367745d6dc390f2")], sub_rule:[]
+relation:String("length"), args: [String("fetch.link"), Number(7816)], sub_rule:[]
+relation:String("targets"), args: [String("targets"), String("modify.link")], sub_rule:[]
+relation:String("hashes"), args: [String("modify.link"), String("61da393ad4eba3e88ec2e9fa1cbf914db7e750456db60407601b669b69c03fb8")], sub_rule:[]
+relation:String("length"), args: [String("modify.link"), Number(262852)], sub_rule:[]
+relation:String("targets"), args: [String("targets"), String("root.layout")], sub_rule:[]
+relation:String("hashes"), args: [String("root.layout"), String("0ee9d322bfe87b615cf6e4fe1dac492b7e521ebf6239de6a0886a5c00a83e514")], sub_rule:[]
+relation:String("length"), args: [String("root.layout"), Number(4135)], sub_rule:[]
+relation:String("version"), args: [String("targets"), Number(1)], sub_rule:[]
+relation:String("keyids"), args: [String("targets"), String("ad8f3418fb86d884318c9bba298fe48aee4819138c37a56ac3a0f923ae5792df")], sub_rule:[]
+relation:String("threshold"), args: [String("targets"), Number(1)], sub_rule:[]
+relation:String("roles"), args: [String("tufroot"), String("timestamp")], sub_rule:[]
+relation:String("hash"), args: [String("timestamp"), String("timestamp.json"), String("bcf7c16d84f7165d0352955c1b8f8b1702c205cf287499056189adf7098c8915")], sub_rule:[]
+relation:String("sign"), args: [String("fca8be07d0b411ea0a9a31fdbcc2a7e46ab8371f9057e63ae4f951cb4519a06b"), String("timestamp"), String("-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEApfkWzuoNsjTCWrV2lSsn\\neQgjmQ0RITqW7QLT1SF8omtGU/Rtv847tncCu3OcU9vHX5IvNRQUsl3d4ahRQgf7\\nfDK5okDcAO/GFdLMsZYz/JPJry+z08o1DtMoFwtEhJQbjXivDAaAlvVmBblcNs9R\\nYx2EsgZtJnA81EQtjFIDBDLyuaq54yo1jHbXmU/nIwfb73fO/chrhIvuXN5jgwLU\\nCqGKg6HvqyFelwx5xYV+jvayFlm1wbqB8YHFZfDJlRZJI+woqHYwuJ0M1dxJ265L\\nmxm6pQT6xDm3iBmtd/C0Ywgm8D5mPlblA932tb0DhIMfYKtok6wymR2sSLhlY1Z+\\nXLFOg01J5nwiRy76K7dAvmD4zaeY277ATPJWuvgKtl8UraoxL+Uunw4Lzlj++3AY\\nWX17MX2z1WXB5Mc1NfNSMGgRUAbJ66+drB6Ga4R0CuDr7cOK/6aMe73iKRiN0Qdh\\n1xo5e5r/H6bg8u8E4GZqwXQNhKgMBqdPktuM3k5sazenBbhPpOizBBszCBHN6OZa\\n3wZDnIyCjyqIFHuxHGjvdmLe2Qpg9g0Gvv3rE9w6ixDO88MNO+Mogd1xmVE0rV0l\\nscKStc0xnXd4yQSz4wQ74ue8MMtLiPJxTUYWTkUylZ/ZPDEjbDIeTRk16ua8IFmz\\nAVJtU5DOZIQrkNFy8tq+57sCAwEAAQ==\\n-----END PUBLIC KEY-----\\n"), String("302f9155f09a09695c9cd156d92dd6eee81578577ec93a7512bf3678e6ae6daab08a8fe92be5dea728ed8d0b78179c403496f30f8e118eee79054f936f0df1e115c02183a97250a8658ef99285968110af3524123e7817d2c3fd807234e899fe9d4be0535c8f8ad78858d2ab8010e307ff96e8a911c86ac74a544faeab45ac1f3d8ada8c942b239b599c65c76ed3767fd45f64a7776bbb5f15ab57d46074a9fe5dea0bdd010541f2cbd44a927e6a3e1205d63ea92d54dd6c1479e2f0d6574cfe16e93b1f7f1828d82e8417d6d04d95049eafdb39ada9b1c8da88426fc528c13e6167cc7da31e5839c169a976d8a3b2c1d78e70665a2aaeb17fa5b725b8e13ede728acdcaf32ebac75246da4c2046aa63f6eeb4a5d5be017c06326e5041d757ce7c44f060f1dda417d536d9622cd64fe47f8a4c28b9181d263ed489c0f7eb6714dfc6b29ab2ac0b97d2e9c79d856965c6dc174a1b67efb1fe387d974079aae8824c41e434b4216789ad0e605dc7e15f9fd7f4ad6269ea5786f6aa85379e6bf8eb74acadb70481ff10026b63cb5a3ac62cd582c5eb5d2cca80d89ecaa728c28fc4bed503a4aca7ff8449351c5cc26ebe0ad7e075bd48c896ccd0d4d6c8827e58f65dcf33e3d7e14ad222ba359d384c5c9d478011512c833b46233f7f2cecb7f9d688c4f60ebe9b7f390ac0468d0e34fd0ea4a4a43877cc2231b8c20911b77f281d")], sub_rule:[]
+relation:String("verified"), args: [String("timestamp"), Number(1)], sub_rule:[]
+relation:String("geq"), args: [Number(1), Number(1)], sub_rule:[]
+relation:String("signatures"), args: [String("timestamp"), String("fca8be07d0b411ea0a9a31fdbcc2a7e46ab8371f9057e63ae4f951cb4519a06b"), String("302f9155f09a09695c9cd156d92dd6eee81578577ec93a7512bf3678e6ae6daab08a8fe92be5dea728ed8d0b78179c403496f30f8e118eee79054f936f0df1e115c02183a97250a8658ef99285968110af3524123e7817d2c3fd807234e899fe9d4be0535c8f8ad78858d2ab8010e307ff96e8a911c86ac74a544faeab45ac1f3d8ada8c942b239b599c65c76ed3767fd45f64a7776bbb5f15ab57d46074a9fe5dea0bdd010541f2cbd44a927e6a3e1205d63ea92d54dd6c1479e2f0d6574cfe16e93b1f7f1828d82e8417d6d04d95049eafdb39ada9b1c8da88426fc528c13e6167cc7da31e5839c169a976d8a3b2c1d78e70665a2aaeb17fa5b725b8e13ede728acdcaf32ebac75246da4c2046aa63f6eeb4a5d5be017c06326e5041d757ce7c44f060f1dda417d536d9622cd64fe47f8a4c28b9181d263ed489c0f7eb6714dfc6b29ab2ac0b97d2e9c79d856965c6dc174a1b67efb1fe387d974079aae8824c41e434b4216789ad0e605dc7e15f9fd7f4ad6269ea5786f6aa85379e6bf8eb74acadb70481ff10026b63cb5a3ac62cd582c5eb5d2cca80d89ecaa728c28fc4bed503a4aca7ff8449351c5cc26ebe0ad7e075bd48c896ccd0d4d6c8827e58f65dcf33e3d7e14ad222ba359d384c5c9d478011512c833b46233f7f2cecb7f9d688c4f60ebe9b7f390ac0468d0e34fd0ea4a4a43877cc2231b8c20911b77f281d")], sub_rule:[]
+relation:String("_type"), args: [String("timestamp"), String("timestamp")], sub_rule:[]
+relation:String("now"), args: [String("timestamp"), Number(1691589807)], sub_rule:[]
+relation:String("expires"), args: [String("timestamp"), Number(1893456000)], sub_rule:[]
+relation:String("leq"), args: [Number(1691589807), Number(1893456000)], sub_rule:[]
+relation:String("meta"), args: [String("timestamp"), String("snapshot.json")], sub_rule:[]
+relation:String("hashes"), args: [String("snapshot.json"), String("c54038493f879ef866d608a2682b49e68481e601e1cee41c9883d76ee8b8d679")], sub_rule:[]
+relation:String("length"), args: [String("snapshot.json"), Number(1327)], sub_rule:[]
+relation:String("version"), args: [String("snapshot.json"), Number(1)], sub_rule:[]
+relation:String("spec_version"), args: [String("timestamp"), String("1.0.0")], sub_rule:[]
+relation:String("version"), args: [String("timestamp"), Number(1)], sub_rule:[]
+relation:String("keyids"), args: [String("timestamp"), String("fca8be07d0b411ea0a9a31fdbcc2a7e46ab8371f9057e63ae4f951cb4519a06b")], sub_rule:[]
+relation:String("threshold"), args: [String("timestamp"), Number(1)], sub_rule:[]
+relation:String("spec_version"), args: [String("tufroot"), String("1.0.0")], sub_rule:[]
+relation:String("version"), args: [String("tufroot"), Number(1)], sub_rule:[]

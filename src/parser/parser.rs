@@ -8,6 +8,7 @@ use super::{lexer::Token, NamedUniverse};
 
 use crate::parser::Types;
 
+// a lexer token stream containing parsed tokens
 struct TokenStream<'a> {
     source: &'a str,
     lexer: Peekable<SpannedIter<'a, Token>>,
@@ -88,8 +89,6 @@ impl<'a> Parser<'a> {
         Self { universe }
     }
 
-    // //////////////////////////////// PUBLIC PARSER ////////////////////////////////
-
     pub fn parse_query_str(&mut self, query: &str) -> Result<Query, ParseError> {
         let mut tokens = TokenStream::new(query);
         let result = self
@@ -115,8 +114,7 @@ impl<'a> Parser<'a> {
         Ok(result)
     }
 
-    // //////////////////////////////// PARSER INTERNALS ////////////////////////////////
-
+    // parse a rule of the form `pred1 :- pred2, ..., predn.`
     fn parse_rule(&mut self, tokens: &mut TokenStream) -> Result<Rule, ParseError> {
         // println!("{}", tokens);
         let main_rule = self.parse_pred(tokens)?;
@@ -138,6 +136,7 @@ impl<'a> Parser<'a> {
         Ok(Rule { main_rule, sub_rules })
     }
 
+    // parse goals of the form `pred1, ..., predn.
     fn parse_conjunction1(&mut self, tokens: &mut TokenStream) -> Result<Vec<Predicate>, ParseError> {
         let mut goals = vec![self.parse_pred(tokens)?];
         loop {
@@ -185,6 +184,7 @@ impl<'a> Parser<'a> {
         }
     }
 
+    // parse a predicate of the form `pred(term1, ..., termn)`
     fn parse_pred(&mut self, tokens: &mut TokenStream) -> Result<Predicate, ParseError> {
         // println!("{:?}", tokens.source);
         let relation = self.parse_symbol(tokens)?;
@@ -214,6 +214,7 @@ impl<'a> Parser<'a> {
         Ok(Predicate::new(relation, args))
     }
 
+    // parse a term variable or predicate
     fn parse_term(&mut self, tokens: &mut TokenStream) -> Result<Term, ParseError> {
         match tokens.peek_token() {
             Some(Token::Variable(str)) => {

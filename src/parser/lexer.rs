@@ -1,5 +1,6 @@
 use logos::{Lexer, Logos};
 
+// basic tokens in aple language
 #[derive(Logos, Debug, PartialEq, Clone)]
 pub enum Token {
     #[token(".")]

@@ -1,0 +1,14 @@
+validate(debian):-
+    validate_tuf(debian),
+    validate_intoto(debian),
+    validate_file(intotoroot),
+    validate_file(build),
+    validate_file(fetch),
+    validate_file(extract),
+    validate_file(modify).
+
+
+validate_file($speaker):-
+    targets(targets, $file),
+    hash($speaker, $file, $hash),
+    hashes($file, $hash).

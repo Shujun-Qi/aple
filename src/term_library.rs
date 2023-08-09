@@ -8,6 +8,7 @@ pub struct TermId(usize);
 #[repr(transparent)]
 pub struct ArgId(usize);
 
+// the term library contains all the existing terms and args
 #[derive(Debug, Clone)]
 pub struct TermLibrary {
     terms: Vec<Term>,
@@ -22,12 +23,14 @@ impl TermLibrary {
         }
     }
 
+    // add a new principal to the library and return its term id
     pub fn principal(&mut self, pcpl: Principal) -> TermId {
         let term = TermId(self.terms.len());
         self.terms.push(Term::Principal(pcpl));
         term
     }
 
+    // add a new predicate to the library and return its term id
     pub fn predicate(&mut self, relation: Sym, args: &[TermId]) -> TermId {
         let term = TermId(self.terms.len());
         let arg_start = self.args.len();
@@ -43,6 +46,7 @@ impl TermLibrary {
         term
     }
 
+    // merge another term library into this one, and return a function that can be used to get the new term ids from the old ones
     pub fn extend_library(
         &mut self,
         lib: &TermLibrary,
@@ -69,6 +73,7 @@ impl TermLibrary {
     }
 
     
+    // insert a new term into the library and return its term id
     pub fn insert_ast_term(&mut self, ids: &mut Vec<TermId>, term: &types::Term) -> TermId {
         match term {
             types::Term::Principal(pcpl) => self.principal(*pcpl),
@@ -76,6 +81,7 @@ impl TermLibrary {
         }
     }
 
+    // insert a new predicate into the library and return its term id
     pub fn insert_ast_predicate(&mut self, ids: &mut Vec<TermId>, pred: &types::Predicate) -> TermId {
         let args_start = ids.len();
         for arg in &pred.args {

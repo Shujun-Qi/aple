@@ -1,9 +1,8 @@
-#Intoto Validation Spec 5.2.1
+
 validate_intoto_root(intotoroot):-
     sign($keyid, intotoroot, $pub_key, $sig),
     signatures(intotoroot, $keyid, $method, $sig).
 
-#Intoto Validation Spec 5.2.4
 validate_intoto_link($speaker):-
     validate_key($keyid, $pub_key),
     sign($keyid, $speaker, $pub_key, $sig),
@@ -11,25 +10,21 @@ validate_intoto_link($speaker):-
     validate_threshold($speaker),
     validate_link_materials($speaker).
 
-#Intoto Validation Spec 5.2.2
 validate_expiration($speaker):-
     expires($speaker, $exp),
     now($speaker, $time),
     leq($time, $exp).
 
-#Intoto Validation Spec 5.2.3
 validate_key($keyid, $pubkey):-
     validate_intoto_root(intotoroot),
     keys(intotoroot, $keyid),
     keyval($keyid, $prvkey, $pubkey).
 
-#Intoto Validation Spec 5.2.4
 validate_threshold($speaker):-
     threshold($speaker, $threshold),
     verified($speaker, $count),
     geq($count,$threshold).
 
-#Intoto Validation Spec 5.2.5
 validate_link_materials(fetch).
 
 validate_link_materials(extract):-

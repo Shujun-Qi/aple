@@ -1,28 +1,24 @@
-#Tuf validation spec 5.3
+
 validate_tuf_root(tufroot):-
     sign($keyid, tufroot, $pub_key, $sig),
     signatures(tufroot, $keyid, $sig),
     validate_expiration(tufroot).
 
-#Tuf validation spec 5.*.10
 validate_expiration($speaker):-
     expires($speaker, $exp),
     now($speaker, $time),
     leq($time, $exp).
 
-#Tuf validation spec 5.*.3
 validate_key($keyid, $pubkey):-
     validate_tuf_root(tufroot),
     keys(tufroot, $keyid),
     keyval($keyid, $pubkey).
 
-#Tuf validation spec 5.*.4
 validate_threshold($speaker):-
     threshold($speaker, $threshold),
     verified($speaker, $count),
     geq($count,$threshold).
 
-#Tuf validation spec 5.4
 validate_tuf_speaker($speaker):-
     keyids($speaker, $keyid),
     validate_key($keyid, $pub_key),
@@ -31,7 +27,6 @@ validate_tuf_speaker($speaker):-
     validate_expiration($speaker),
     validate_threshold($speaker).
 
-#Tuf validation spec 5.5
 validate_tuf_snapshot(snapshot):-
     validate_tuf_speaker(snapshot),
     version(snapshot, $ver),
@@ -39,12 +34,10 @@ validate_tuf_snapshot(snapshot):-
     hash(snapshot, $sfile, $hash),
     hashes($sfile, $hash).
 
-#Tuf validation spec 5.6
 validate_tuf_targets(targets):-
     validate_tuf_speaker(targets),
     version(targets, $ver),
     version($tfile, $ver).
-
 
 validate_tuf(debian):-
     validate_tuf_root(tufroot),

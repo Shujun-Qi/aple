@@ -10,6 +10,7 @@ use crate::{
     universe::{CompiledRule, CompiledRuleDb, Universe},
 };
 
+// a dfs search for iterating over solution fields
 pub fn query_dfs<'a>(universe: &'a Universe, query: &Query) -> SolutionIter<'a> {
     
     let max_pcpl = query.count_size();
@@ -28,13 +29,17 @@ pub fn query_dfs<'a>(universe: &'a Universe, query: &Query) -> SolutionIter<'a> 
         solution,
     }
 }
+
+// a solution iterator, containing current state of query matching
 #[derive(Debug)]
 pub struct SolutionIter<'s> {
     rules: &'s CompiledRuleDb,
-    unresolved_goals: Vec<term_library::TermId>,
+    pub unresolved_goals: Vec<term_library::TermId>,
     pub checkpoints: Vec<Checkpoint>,
-    solution: SolutionState,
+    pub solution: SolutionState,
 }
+
+// a checkpoint for backtracking
 #[derive(Debug)]
 pub struct Checkpoint {
     goal: term_library::TermId,
@@ -48,8 +53,13 @@ impl Checkpoint {
     pub fn get_solution_checkpoint(&self) -> &SolutionCheckpoint {
         &self.solution_checkpoint
     }
+
+    pub fn get_main_rule(&self) -> Sym {
+        self.main_rule
+    }
 }
 
+// iteration step status
 pub enum Step {
     Yield,
     Precompiled,
@@ -59,6 +69,7 @@ pub enum Step {
 
 impl<'s> SolutionIter<'s> {
   
+    // perform a step of the iteration
     pub fn step(&mut self) -> Step {
         if let Some(goal) = self.unresolved_goals.pop() {
             let main_rule = match self.solution.lib.get_term(goal) {
@@ -75,7 +86,16 @@ impl<'s> SolutionIter<'s> {
             });
         }
         // println!("checkpoint: {:?}", self.checkpoints);
-        return self.backtrack_resume();
+        if self.backtrack_resume(){
+            if self.unresolved_goals.is_empty() {
+                Step::Yield
+            } else {
+                Step::Continue
+            }
+        }
+        else{
+            Step::Done
+        }
     }
 
     pub fn get_solution(&self) -> Vec<Option<types::Term>> {
@@ -99,6 +119,7 @@ impl<'s> SolutionIter<'s> {
         &self.unresolved_goals
     }
 
+    // resume from a checkpoint and try to find another path
     fn resume_checkpoint(&mut self) -> bool {
         let checkpoint = self
             .checkpoints
@@ -122,7 +143,8 @@ impl<'s> SolutionIter<'s> {
         false
     }
 
-    fn backtrack_resume(&mut self) -> Step {
+    // backtrack to the last checkpoint
+    fn backtrack_resume(&mut self) -> bool{
         while let Some(checkpoint) = self.checkpoints.last() {
             self.solution.restore(&checkpoint.solution_checkpoint);
             self.unresolved_goals.truncate(checkpoint.goals_checkpoint);
@@ -133,14 +155,10 @@ impl<'s> SolutionIter<'s> {
             //     _ => {}
             // }
             if self.resume_checkpoint() {
-                if self.unresolved_goals.is_empty() {
-                    return Step::Yield;
-                } else {
-                    return Step::Continue;
-                }
+                return true;
             }
         }
-        return Step::Done;
+        false
     }
 }
 
@@ -159,15 +177,17 @@ impl<'s> Iterator for SolutionIter<'s> {
     }
 }
 
+// the state of a solution
 #[derive(Debug)]
-struct SolutionState {
+pub struct SolutionState {
     map: Vec<Option<term_library::TermId>>,
     assignments: Vec<Principal>,
     goal_nums: usize,
-    lib: TermLibrary,
+    pub lib: TermLibrary,
     occurs_stack: Vec<term_library::TermId>,
 }
 
+// a solution checkpoint for current state of the library
 #[derive(Debug)]
 pub struct SolutionCheckpoint {
     assign_checkpoint: usize,
@@ -191,6 +211,7 @@ impl SolutionState {
         self.map.resize(self.map.len() + nums, None);
     }
 
+    // set the mapping of a principal to a term in the library
     fn set_principal(&mut self, pcpl: Principal, value: term_library::TermId) -> bool {
         debug_assert!(self.map[pcpl.ord()].is_none());
 
@@ -204,6 +225,7 @@ impl SolutionState {
         true
     }
 
+    // check the occurance of a principal mapping
     fn occurs(&mut self, pcpl: Principal, mut term: term_library::TermId) -> bool {
         loop {
             match self.lib.get_term(term) {
@@ -234,6 +256,7 @@ impl SolutionState {
         }
     }
 
+    // restore from a checkpoint of the solution
     fn restore(&mut self, checkpoint: &SolutionCheckpoint) {
         for pcpl in self.assignments.drain(checkpoint.assign_checkpoint..) {
             self.map[pcpl.ord()] = None;
@@ -242,7 +265,8 @@ impl SolutionState {
         self.lib.release(&checkpoint.lib_checkpoint);
     }
 
-    fn get_solution_term(&self, term: term_library::TermId) -> types::Term {
+    // get the term from termid
+    pub fn get_solution_term(&self, term: term_library::TermId) -> types::Term {
         match self.lib.get_term(term) {
             term_library::Term::Principal(p) => {
                 if let Some(value) = &self.map[p.ord()] {
@@ -260,6 +284,7 @@ impl SolutionState {
         }
     }
 
+    // get solutions from the solution state
     fn get_solution(&self) -> Vec<Option<types::Term>> {
         self.map
             .iter()
@@ -268,6 +293,7 @@ impl SolutionState {
             .collect()
     }
 
+    // follow the principal termid to get the mapped terms
     fn follow_pcpls(&self, mut term: term_library::TermId) -> (term_library::TermId, term_library::Term) {
         loop {
             match self.lib.get_term(term) {
@@ -283,10 +309,11 @@ impl SolutionState {
         }
     }
 
+    // unify the goal terms and the rule terms
     fn unify(&mut self, goal_term: term_library::TermId, rule_term: term_library::TermId) -> bool {
         let (goal_term_id, goal_term) = self.follow_pcpls(goal_term);
         let (rule_term_id, rule_term) = self.follow_pcpls(rule_term);
-        println!("unify {:?} {:?}", goal_term, rule_term);
+        // println!("unify {:?} {:?}", goal_term, rule_term);
         match (goal_term, rule_term) {
             (term_library::Term::Principal(goal_pcpl), term_library::Term::Principal(rule_pcpl)) => {
                 if goal_pcpl != rule_pcpl {
@@ -305,10 +332,10 @@ impl SolutionState {
                 term_library::Term::Pred(goal_relation, goal_args),
                 term_library::Term::Pred(rule_relation, rule_args),
             ) => {
-                println!("unify {:?} {:?} {:?} {:?}", goal_relation, goal_args, rule_relation, rule_args);
+                // println!("unify {:?} {:?} {:?} {:?}", goal_relation, goal_args, rule_relation, rule_args);
                 match goal_relation.ord(){
                     4 => {
-                        println!("unify {:?} {:?} {:?} {:?}", goal_relation, goal_args, rule_relation, rule_args);
+                        // println!("unify {:?} {:?} {:?} {:?}", goal_relation, goal_args, rule_relation, rule_args);
                         return true;
                     }
                     _ => {}
@@ -326,6 +353,7 @@ impl SolutionState {
         }
     }
     
+    // unify the goal with the rule
     fn unify_rule<'a>(
         &mut self,
         goal_term: term_library::TermId,

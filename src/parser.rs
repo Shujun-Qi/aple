@@ -14,6 +14,7 @@ use std::io::Write;
 pub use parser::{ParseError, ParseErrorKind};
 pub use self::{parser::Parser, printer::Printer};
 
+// basic types in aple language
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Types{
     String(String),
@@ -54,7 +55,7 @@ impl From<i64> for Types{
 
 
 
-
+// a named universe for aple is a struct that contains a universe and a hashmap that maps a symbol to a name
 pub struct NamedUniverse {
     names: HashMap<Types, Sym>,
     syms: HashMap<Sym, Types>,
@@ -71,6 +72,7 @@ impl NamedUniverse {
         }
     }
 
+    // allocate a symbol for a name, if the name already exists, return the symbol
     pub fn symbol(&mut self, name: &Types) -> Sym {
         if let Some(sym) = self.names.get(name) {
             *sym
@@ -128,10 +130,6 @@ impl NamedUniverse {
         }
     }
 
-    // pub fn query(&self, query: &Query, domain: &str) -> Result<SolutionIter, Status>{
-        
-
-    // }
 
 }
 
@@ -142,6 +140,7 @@ impl Default for NamedUniverse {
 }
 
 
+// a textual universe that contains a named universe and a parser for parsing aple language
 pub struct TextualUniverse {
     universe: NamedUniverse,
 }
@@ -186,8 +185,12 @@ impl TextualUniverse {
         self.universe.inner()
     }
 
-    pub fn universe(& mut self) -> & mut NamedUniverse{
+    pub fn universe_mut(& mut self) -> & mut NamedUniverse{
         & mut self.universe
+    }
+
+    pub fn universe(&self) -> &NamedUniverse{
+        &self.universe
     }
 }
 
